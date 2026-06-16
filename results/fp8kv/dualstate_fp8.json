@@ -1,0 +1,1999 @@
+{
+  "tag": "dualstate_fp8",
+  "model_name": "Qwen3.6-35B-A3B",
+  "mode": "sweep",
+  "timestamp": "2026-06-12 01:58:59",
+  "sweep_results": [
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.28141755308024585,
+          "prompt_tokens": 2252,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": true,
+          "ttft": 0.44332296191714704,
+          "prompt_tokens": 2247,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": true,
+          "ttft": 0.4487975200172514,
+          "prompt_tokens": 2249,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": true,
+          "ttft": 0.44235355500131845,
+          "prompt_tokens": 2248,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5296366570983082,
+          "prompt_tokens": 2246,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5658862348645926,
+          "prompt_tokens": 2246,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5952265791129321,
+          "prompt_tokens": 2243,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6174959249328822,
+          "prompt_tokens": 2245,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 8,
+        "success_rate": 1.0,
+        "ttft_mean": 0.4905171232530847,
+        "ttft_p50": 0.5296366570983082,
+        "ttft_p90": 0.6174959249328822,
+        "ttft_p99": 0.6174959249328822,
+        "ttft_min": 0.28141755308024585,
+        "ttft_max": 0.6174959249328822,
+        "ttft_first": 0.28141755308024585,
+        "ttft_subsequent_mean": 0.5203884904206332,
+        "ttft_subsequent_p50": 0.5296366570983082
+      },
+      "warmup_ttft": 0.34971465286798775,
+      "warmup_success": true,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 1575,
+      "label": "p2048_f8_d0_65ab618b",
+      "prefix_len": 2048,
+      "fan_out": 8,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.2794420209247619,
+          "prompt_tokens": 2574,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": true,
+          "ttft": 0.4227184560149908,
+          "prompt_tokens": 2569,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": true,
+          "ttft": 0.421169675886631,
+          "prompt_tokens": 2572,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": true,
+          "ttft": 0.44352644798345864,
+          "prompt_tokens": 2572,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5662587711121887,
+          "prompt_tokens": 2576,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5662155190948397,
+          "prompt_tokens": 2570,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5804513010662049,
+          "prompt_tokens": 2578,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6446103069465607,
+          "prompt_tokens": 2576,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 8,
+        "success_rate": 1.0,
+        "ttft_mean": 0.49054906237870455,
+        "ttft_p50": 0.5662155190948397,
+        "ttft_p90": 0.6446103069465607,
+        "ttft_p99": 0.6446103069465607,
+        "ttft_min": 0.2794420209247619,
+        "ttft_max": 0.6446103069465607,
+        "ttft_first": 0.2794420209247619,
+        "ttft_subsequent_mean": 0.5207072111578392,
+        "ttft_subsequent_p50": 0.5662155190948397
+      },
+      "warmup_ttft": 0.20771180000156164,
+      "warmup_success": true,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 1575,
+      "label": "p2048_f8_d0_cc4f70a5",
+      "prefix_len": 2048,
+      "fan_out": 8,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.1858711049426347,
+          "prompt_tokens": 2252,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": true,
+          "ttft": 0.20271874219179153,
+          "prompt_tokens": 2247,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": true,
+          "ttft": 0.19094284996390343,
+          "prompt_tokens": 2249,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": true,
+          "ttft": 0.20117284101434052,
+          "prompt_tokens": 2248,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": true,
+          "ttft": 0.18996462016366422,
+          "prompt_tokens": 2246,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": true,
+          "ttft": 0.1867332060355693,
+          "prompt_tokens": 2246,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": true,
+          "ttft": 0.18968527088873088,
+          "prompt_tokens": 2243,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": true,
+          "ttft": 0.19031700491905212,
+          "prompt_tokens": 2245,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 8,
+        "success_rate": 1.0,
+        "ttft_mean": 0.19217570501496084,
+        "ttft_p50": 0.19031700491905212,
+        "ttft_p90": 0.20271874219179153,
+        "ttft_p99": 0.20271874219179153,
+        "ttft_min": 0.1858711049426347,
+        "ttft_max": 0.20271874219179153,
+        "ttft_first": 0.1858711049426347,
+        "ttft_subsequent_mean": 0.1930763621681503,
+        "ttft_subsequent_p50": 0.19031700491905212
+      },
+      "warmup_ttft": 0.16812806203961372,
+      "warmup_success": true,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 1575,
+      "label": "p2048_f8_d200_65ab618b",
+      "prefix_len": 2048,
+      "fan_out": 8,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.18559620808809996,
+          "prompt_tokens": 2574,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": true,
+          "ttft": 0.20150252617895603,
+          "prompt_tokens": 2569,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": true,
+          "ttft": 0.19064956903457642,
+          "prompt_tokens": 2572,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22296685283072293,
+          "prompt_tokens": 2572,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": true,
+          "ttft": 0.2564508719369769,
+          "prompt_tokens": 2576,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.33824914903379977,
+          "prompt_tokens": 2570,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": true,
+          "ttft": 0.31839271704666317,
+          "prompt_tokens": 2578,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22587350686080754,
+          "prompt_tokens": 2576,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 8,
+        "success_rate": 1.0,
+        "ttft_mean": 0.24246017512632534,
+        "ttft_p50": 0.22587350686080754,
+        "ttft_p90": 0.33824914903379977,
+        "ttft_p99": 0.33824914903379977,
+        "ttft_min": 0.18559620808809996,
+        "ttft_max": 0.33824914903379977,
+        "ttft_first": 0.18559620808809996,
+        "ttft_subsequent_mean": 0.25058359898892896,
+        "ttft_subsequent_p50": 0.22587350686080754
+      },
+      "warmup_ttft": 0.16607922711409628,
+      "warmup_success": true,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 1575,
+      "label": "p2048_f8_d200_cc4f70a5",
+      "prefix_len": 2048,
+      "fan_out": 8,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.31354353902861476,
+          "prompt_tokens": 2252,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": true,
+          "ttft": 0.3954145659226924,
+          "prompt_tokens": 2247,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": true,
+          "ttft": 0.39526696410030127,
+          "prompt_tokens": 2249,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": true,
+          "ttft": 0.39231160283088684,
+          "prompt_tokens": 2248,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": true,
+          "ttft": 0.39489013492129743,
+          "prompt_tokens": 2246,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": true,
+          "ttft": 0.3933778558857739,
+          "prompt_tokens": 2246,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": true,
+          "ttft": 0.39039874798618257,
+          "prompt_tokens": 2243,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": true,
+          "ttft": 0.39038819703273475,
+          "prompt_tokens": 2245,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        },
+        {
+          "success": true,
+          "ttft": 0.4026720318943262,
+          "prompt_tokens": 2250,
+          "completion_tokens": 16,
+          "request_idx": 8,
+          "question": "What are the guidelines recommended by DCPCR for same-sex adoptions?"
+        },
+        {
+          "success": true,
+          "ttft": 0.4357945960946381,
+          "prompt_tokens": 2255,
+          "completion_tokens": 16,
+          "request_idx": 9,
+          "question": "What was the stance of Islamic organizations on the extension of the right to marry to queer Indians"
+        },
+        {
+          "success": true,
+          "ttft": 0.4799755890853703,
+          "prompt_tokens": 2243,
+          "completion_tokens": 16,
+          "request_idx": 10,
+          "question": "What was Kajal's occupation?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5096350479871035,
+          "prompt_tokens": 2251,
+          "completion_tokens": 16,
+          "request_idx": 11,
+          "question": "What did Senior Advocate Vrinda Grover draw the Bench's attention to?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5744206770323217,
+          "prompt_tokens": 2247,
+          "completion_tokens": 16,
+          "request_idx": 12,
+          "question": "What did the retired judges argue regarding law-making power?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5739326309412718,
+          "prompt_tokens": 2253,
+          "completion_tokens": 16,
+          "request_idx": 13,
+          "question": "Who opposed same-sex marriage on 11th May 2023?"
+        },
+        {
+          "success": true,
+          "ttft": 0.592138904845342,
+          "prompt_tokens": 2254,
+          "completion_tokens": 16,
+          "request_idx": 14,
+          "question": "Why does the respondent oppose extending the right to marry and establish a family to queer Indians?"
+        },
+        {
+          "success": true,
+          "ttft": 0.617144093150273,
+          "prompt_tokens": 2255,
+          "completion_tokens": 16,
+          "request_idx": 15,
+          "question": "Which state governments have intervened to oppose the right to marry and establish a family for quee"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 16,
+        "success_rate": 1.0,
+        "ttft_mean": 0.45320657367119566,
+        "ttft_p50": 0.4026720318943262,
+        "ttft_p90": 0.592138904845342,
+        "ttft_p99": 0.617144093150273,
+        "ttft_min": 0.31354353902861476,
+        "ttft_max": 0.617144093150273,
+        "ttft_first": 0.31354353902861476,
+        "ttft_subsequent_mean": 0.4625174426473677,
+        "ttft_subsequent_p50": 0.4026720318943262
+      },
+      "warmup_ttft": 0.14901898801326752,
+      "warmup_success": true,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 1575,
+      "label": "p2048_f16_d0_65ab618b",
+      "prefix_len": 2048,
+      "fan_out": 16,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.2731824000366032,
+          "prompt_tokens": 2574,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": true,
+          "ttft": 0.34631535806693137,
+          "prompt_tokens": 2569,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": true,
+          "ttft": 0.37771188491024077,
+          "prompt_tokens": 2572,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": true,
+          "ttft": 0.36632207897491753,
+          "prompt_tokens": 2572,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": true,
+          "ttft": 0.3905040780082345,
+          "prompt_tokens": 2576,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.400937472935766,
+          "prompt_tokens": 2570,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": true,
+          "ttft": 0.40576901100575924,
+          "prompt_tokens": 2578,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.4418431541416794,
+          "prompt_tokens": 2576,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.4361658440902829,
+          "prompt_tokens": 2577,
+          "completion_tokens": 16,
+          "request_idx": 8,
+          "question": "What was the number of TO&E authorization for aviators in the 57th Medical Detachment?"
+        },
+        {
+          "success": true,
+          "ttft": 0.4670935180038214,
+          "prompt_tokens": 2567,
+          "completion_tokens": 16,
+          "request_idx": 9,
+          "question": "Was the maintenance support and availability of spare parts sufficient?"
+        },
+        {
+          "success": true,
+          "ttft": 0.493898011976853,
+          "prompt_tokens": 2564,
+          "completion_tokens": 16,
+          "request_idx": 10,
+          "question": "What were the options for patient evacuation?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5247315838932991,
+          "prompt_tokens": 2569,
+          "completion_tokens": 16,
+          "request_idx": 11,
+          "question": "Who was classifying the Vietnamese patients on a medical evacuation request?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5503230488393456,
+          "prompt_tokens": 2571,
+          "completion_tokens": 16,
+          "request_idx": 12,
+          "question": "What operation did the 57th Medical Detachment support in Honduras?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5816672029905021,
+          "prompt_tokens": 2573,
+          "completion_tokens": 16,
+          "request_idx": 13,
+          "question": "What was the 57th Medical Detachment reorganized and redesignated as?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6088977989275008,
+          "prompt_tokens": 2578,
+          "completion_tokens": 16,
+          "request_idx": 14,
+          "question": "What did the 57th Medical Company (Air Ambulance) do in 1998?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6340328820515424,
+          "prompt_tokens": 2577,
+          "completion_tokens": 16,
+          "request_idx": 15,
+          "question": "What did the 57th Medical Company do on 18 May 1999?"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 16,
+        "success_rate": 1.0,
+        "ttft_mean": 0.45621220805332996,
+        "ttft_p50": 0.4418431541416794,
+        "ttft_p90": 0.6088977989275008,
+        "ttft_p99": 0.6340328820515424,
+        "ttft_min": 0.2731824000366032,
+        "ttft_max": 0.6340328820515424,
+        "ttft_first": 0.2731824000366032,
+        "ttft_subsequent_mean": 0.46841419525444505,
+        "ttft_subsequent_p50": 0.4418431541416794
+      },
+      "warmup_ttft": 0.15501432307064533,
+      "warmup_success": true,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 1575,
+      "label": "p2048_f16_d0_cc4f70a5",
+      "prefix_len": 2048,
+      "fan_out": 16,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.22703363979235291,
+          "prompt_tokens": 2252,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": true,
+          "ttft": 0.23451684811152518,
+          "prompt_tokens": 2247,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22749176202341914,
+          "prompt_tokens": 2249,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": true,
+          "ttft": 0.23237022198736668,
+          "prompt_tokens": 2248,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22023144201375544,
+          "prompt_tokens": 2246,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": true,
+          "ttft": 0.21748440503142774,
+          "prompt_tokens": 2246,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": true,
+          "ttft": 0.21786351106129587,
+          "prompt_tokens": 2243,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": true,
+          "ttft": 0.21907327487133443,
+          "prompt_tokens": 2245,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        },
+        {
+          "success": true,
+          "ttft": 0.3461259510368109,
+          "prompt_tokens": 2250,
+          "completion_tokens": 16,
+          "request_idx": 8,
+          "question": "What are the guidelines recommended by DCPCR for same-sex adoptions?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22441958007402718,
+          "prompt_tokens": 2255,
+          "completion_tokens": 16,
+          "request_idx": 9,
+          "question": "What was the stance of Islamic organizations on the extension of the right to marry to queer Indians"
+        },
+        {
+          "success": true,
+          "ttft": 0.23103845003060997,
+          "prompt_tokens": 2243,
+          "completion_tokens": 16,
+          "request_idx": 10,
+          "question": "What was Kajal's occupation?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22170407394878566,
+          "prompt_tokens": 2251,
+          "completion_tokens": 16,
+          "request_idx": 11,
+          "question": "What did Senior Advocate Vrinda Grover draw the Bench's attention to?"
+        },
+        {
+          "success": true,
+          "ttft": 0.25944690220057964,
+          "prompt_tokens": 2247,
+          "completion_tokens": 16,
+          "request_idx": 12,
+          "question": "What did the retired judges argue regarding law-making power?"
+        },
+        {
+          "success": true,
+          "ttft": 0.23260150686837733,
+          "prompt_tokens": 2253,
+          "completion_tokens": 16,
+          "request_idx": 13,
+          "question": "Who opposed same-sex marriage on 11th May 2023?"
+        },
+        {
+          "success": true,
+          "ttft": 0.36381304496899247,
+          "prompt_tokens": 2254,
+          "completion_tokens": 16,
+          "request_idx": 14,
+          "question": "Why does the respondent oppose extending the right to marry and establish a family to queer Indians?"
+        },
+        {
+          "success": true,
+          "ttft": 0.25186121789738536,
+          "prompt_tokens": 2255,
+          "completion_tokens": 16,
+          "request_idx": 15,
+          "question": "Which state governments have intervened to oppose the right to marry and establish a family for quee"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 16,
+        "success_rate": 1.0,
+        "ttft_mean": 0.24544223949487787,
+        "ttft_p50": 0.23103845003060997,
+        "ttft_p90": 0.3461259510368109,
+        "ttft_p99": 0.36381304496899247,
+        "ttft_min": 0.21748440503142774,
+        "ttft_max": 0.36381304496899247,
+        "ttft_first": 0.21748440503142774,
+        "ttft_subsequent_mean": 0.24730609512577453,
+        "ttft_subsequent_p50": 0.23103845003060997
+      },
+      "warmup_ttft": 0.16110199596732855,
+      "warmup_success": true,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 1575,
+      "label": "p2048_f16_d200_65ab618b",
+      "prefix_len": 2048,
+      "fan_out": 16,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.2686992820817977,
+          "prompt_tokens": 2574,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": true,
+          "ttft": 0.2209560819901526,
+          "prompt_tokens": 2569,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": true,
+          "ttft": 0.21984579507261515,
+          "prompt_tokens": 2572,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": true,
+          "ttft": 0.2216789701487869,
+          "prompt_tokens": 2572,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": true,
+          "ttft": 0.21754488302394748,
+          "prompt_tokens": 2576,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22369224694557488,
+          "prompt_tokens": 2570,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22164313006214797,
+          "prompt_tokens": 2578,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22475363197736442,
+          "prompt_tokens": 2576,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.2293786220252514,
+          "prompt_tokens": 2577,
+          "completion_tokens": 16,
+          "request_idx": 8,
+          "question": "What was the number of TO&E authorization for aviators in the 57th Medical Detachment?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22720433492213488,
+          "prompt_tokens": 2567,
+          "completion_tokens": 16,
+          "request_idx": 9,
+          "question": "Was the maintenance support and availability of spare parts sufficient?"
+        },
+        {
+          "success": true,
+          "ttft": 0.23539412394165993,
+          "prompt_tokens": 2564,
+          "completion_tokens": 16,
+          "request_idx": 10,
+          "question": "What were the options for patient evacuation?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22354468400590122,
+          "prompt_tokens": 2569,
+          "completion_tokens": 16,
+          "request_idx": 11,
+          "question": "Who was classifying the Vietnamese patients on a medical evacuation request?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22363927098922431,
+          "prompt_tokens": 2571,
+          "completion_tokens": 16,
+          "request_idx": 12,
+          "question": "What operation did the 57th Medical Detachment support in Honduras?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22086636605672538,
+          "prompt_tokens": 2573,
+          "completion_tokens": 16,
+          "request_idx": 13,
+          "question": "What was the 57th Medical Detachment reorganized and redesignated as?"
+        },
+        {
+          "success": true,
+          "ttft": 0.21694756019860506,
+          "prompt_tokens": 2578,
+          "completion_tokens": 16,
+          "request_idx": 14,
+          "question": "What did the 57th Medical Company (Air Ambulance) do in 1998?"
+        },
+        {
+          "success": true,
+          "ttft": 0.18233370408415794,
+          "prompt_tokens": 2577,
+          "completion_tokens": 16,
+          "request_idx": 15,
+          "question": "What did the 57th Medical Company do on 18 May 1999?"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 16,
+        "success_rate": 1.0,
+        "ttft_mean": 0.22363266797037795,
+        "ttft_p50": 0.22354468400590122,
+        "ttft_p90": 0.23539412394165993,
+        "ttft_p99": 0.2686992820817977,
+        "ttft_min": 0.18233370408415794,
+        "ttft_max": 0.2686992820817977,
+        "ttft_first": 0.18233370408415794,
+        "ttft_subsequent_mean": 0.2263859322294593,
+        "ttft_subsequent_p50": 0.22354468400590122
+      },
+      "warmup_ttft": 0.1535693840123713,
+      "warmup_success": true,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 1575,
+      "label": "p2048_f16_d200_cc4f70a5",
+      "prefix_len": 2048,
+      "fan_out": 16,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.2534992219880223,
+          "prompt_tokens": 4331,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5031881229951978,
+          "prompt_tokens": 4326,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5012278500944376,
+          "prompt_tokens": 4328,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6250984959769994,
+          "prompt_tokens": 4327,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5002873421180993,
+          "prompt_tokens": 4325,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6767942539881915,
+          "prompt_tokens": 4325,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6316551580093801,
+          "prompt_tokens": 4322,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": true,
+          "ttft": 0.7087031158152968,
+          "prompt_tokens": 4324,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 8,
+        "success_rate": 1.0,
+        "ttft_mean": 0.5500566951232031,
+        "ttft_p50": 0.6250984959769994,
+        "ttft_p90": 0.7087031158152968,
+        "ttft_p99": 0.7087031158152968,
+        "ttft_min": 0.2534992219880223,
+        "ttft_max": 0.7087031158152968,
+        "ttft_first": 0.2534992219880223,
+        "ttft_subsequent_mean": 0.5924220484282289,
+        "ttft_subsequent_p50": 0.6250984959769994
+      },
+      "warmup_ttft": 0.3643693281337619,
+      "warmup_success": true,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 3150,
+      "label": "p4096_f8_d0_65ab618b",
+      "prefix_len": 4096,
+      "fan_out": 8,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.259146522032097,
+          "prompt_tokens": 4826,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": true,
+          "ttft": 0.517892848001793,
+          "prompt_tokens": 4821,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5164587919134647,
+          "prompt_tokens": 4824,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5169899160973728,
+          "prompt_tokens": 4824,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6014308959711343,
+          "prompt_tokens": 4828,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6448478759266436,
+          "prompt_tokens": 4822,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6888927300460637,
+          "prompt_tokens": 4830,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.7222494529560208,
+          "prompt_tokens": 4828,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 8,
+        "success_rate": 1.0,
+        "ttft_mean": 0.5584886291180737,
+        "ttft_p50": 0.6014308959711343,
+        "ttft_p90": 0.7222494529560208,
+        "ttft_p99": 0.7222494529560208,
+        "ttft_min": 0.259146522032097,
+        "ttft_max": 0.7222494529560208,
+        "ttft_first": 0.259146522032097,
+        "ttft_subsequent_mean": 0.6012517872732133,
+        "ttft_subsequent_p50": 0.6014308959711343
+      },
+      "warmup_ttft": 0.20550626702606678,
+      "warmup_success": true,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 3150,
+      "label": "p4096_f8_d0_cc4f70a5",
+      "prefix_len": 4096,
+      "fan_out": 8,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.22259305487386882,
+          "prompt_tokens": 4331,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22600837890058756,
+          "prompt_tokens": 4326,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22634898778051138,
+          "prompt_tokens": 4328,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22690089605748653,
+          "prompt_tokens": 4327,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": true,
+          "ttft": 0.3474576831795275,
+          "prompt_tokens": 4325,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22561075817793608,
+          "prompt_tokens": 4325,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22607631422579288,
+          "prompt_tokens": 4322,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": true,
+          "ttft": 0.2256341171450913,
+          "prompt_tokens": 4324,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 8,
+        "success_rate": 1.0,
+        "ttft_mean": 0.24082877379260026,
+        "ttft_p50": 0.22607631422579288,
+        "ttft_p90": 0.3474576831795275,
+        "ttft_p99": 0.3474576831795275,
+        "ttft_min": 0.22259305487386882,
+        "ttft_max": 0.3474576831795275,
+        "ttft_first": 0.22259305487386882,
+        "ttft_subsequent_mean": 0.24343387649527617,
+        "ttft_subsequent_p50": 0.22607631422579288
+      },
+      "warmup_ttft": 0.1800224119797349,
+      "warmup_success": true,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 3150,
+      "label": "p4096_f8_d200_65ab618b",
+      "prefix_len": 4096,
+      "fan_out": 8,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.22246281011030078,
+          "prompt_tokens": 4826,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22631962597370148,
+          "prompt_tokens": 4821,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22793156607076526,
+          "prompt_tokens": 4824,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": true,
+          "ttft": 0.24092838703654706,
+          "prompt_tokens": 4824,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": true,
+          "ttft": 0.2742696770001203,
+          "prompt_tokens": 4828,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.24887669901363552,
+          "prompt_tokens": 4822,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": true,
+          "ttft": 0.37748777912929654,
+          "prompt_tokens": 4830,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.28344809100963175,
+          "prompt_tokens": 4828,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 8,
+        "success_rate": 1.0,
+        "ttft_mean": 0.26271557941799983,
+        "ttft_p50": 0.24887669901363552,
+        "ttft_p90": 0.37748777912929654,
+        "ttft_p99": 0.37748777912929654,
+        "ttft_min": 0.22246281011030078,
+        "ttft_max": 0.37748777912929654,
+        "ttft_first": 0.22246281011030078,
+        "ttft_subsequent_mean": 0.26846597503338543,
+        "ttft_subsequent_p50": 0.24887669901363552
+      },
+      "warmup_ttft": 0.18032527202740312,
+      "warmup_success": true,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 3150,
+      "label": "p4096_f8_d200_cc4f70a5",
+      "prefix_len": 4096,
+      "fan_out": 8,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.5428278050385416,
+          "prompt_tokens": 4331,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5919135138392448,
+          "prompt_tokens": 4326,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": true,
+          "ttft": 0.572341991122812,
+          "prompt_tokens": 4328,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": true,
+          "ttft": 0.627444839803502,
+          "prompt_tokens": 4327,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6060200659558177,
+          "prompt_tokens": 4325,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6409017511177808,
+          "prompt_tokens": 4325,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6529751599300653,
+          "prompt_tokens": 4322,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6615244941785932,
+          "prompt_tokens": 4324,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6916621618438512,
+          "prompt_tokens": 4329,
+          "completion_tokens": 16,
+          "request_idx": 8,
+          "question": "What are the guidelines recommended by DCPCR for same-sex adoptions?"
+        },
+        {
+          "success": true,
+          "ttft": 0.719803469022736,
+          "prompt_tokens": 4334,
+          "completion_tokens": 16,
+          "request_idx": 9,
+          "question": "What was the stance of Islamic organizations on the extension of the right to marry to queer Indians"
+        },
+        {
+          "success": true,
+          "ttft": 0.7570668030530214,
+          "prompt_tokens": 4322,
+          "completion_tokens": 16,
+          "request_idx": 10,
+          "question": "What was Kajal's occupation?"
+        },
+        {
+          "success": true,
+          "ttft": 0.8179134679958224,
+          "prompt_tokens": 4330,
+          "completion_tokens": 16,
+          "request_idx": 11,
+          "question": "What did Senior Advocate Vrinda Grover draw the Bench's attention to?"
+        },
+        {
+          "success": true,
+          "ttft": 0.8232533030677587,
+          "prompt_tokens": 4326,
+          "completion_tokens": 16,
+          "request_idx": 12,
+          "question": "What did the retired judges argue regarding law-making power?"
+        },
+        {
+          "success": true,
+          "ttft": 0.859716682927683,
+          "prompt_tokens": 4332,
+          "completion_tokens": 16,
+          "request_idx": 13,
+          "question": "Who opposed same-sex marriage on 11th May 2023?"
+        },
+        {
+          "success": true,
+          "ttft": 0.8991545820608735,
+          "prompt_tokens": 4333,
+          "completion_tokens": 16,
+          "request_idx": 14,
+          "question": "Why does the respondent oppose extending the right to marry and establish a family to queer Indians?"
+        },
+        {
+          "success": true,
+          "ttft": 0.9322133748792112,
+          "prompt_tokens": 4334,
+          "completion_tokens": 16,
+          "request_idx": 15,
+          "question": "Which state governments have intervened to oppose the right to marry and establish a family for quee"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 16,
+        "success_rate": 1.0,
+        "ttft_mean": 0.7122958416148322,
+        "ttft_p50": 0.6916621618438512,
+        "ttft_p90": 0.8991545820608735,
+        "ttft_p99": 0.9322133748792112,
+        "ttft_min": 0.5428278050385416,
+        "ttft_max": 0.9322133748792112,
+        "ttft_first": 0.5428278050385416,
+        "ttft_subsequent_mean": 0.7235937107199182,
+        "ttft_subsequent_p50": 0.6916621618438512
+      },
+      "warmup_ttft": 0.16715004201978445,
+      "warmup_success": true,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 3150,
+      "label": "p4096_f16_d0_65ab618b",
+      "prefix_len": 4096,
+      "fan_out": 16,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.25876483507454395,
+          "prompt_tokens": 4826,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": true,
+          "ttft": 0.42291992297396064,
+          "prompt_tokens": 4821,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": true,
+          "ttft": 0.4201816851273179,
+          "prompt_tokens": 4824,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": true,
+          "ttft": 0.42081106593832374,
+          "prompt_tokens": 4824,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": true,
+          "ttft": 0.41941607487387955,
+          "prompt_tokens": 4828,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.4205701220780611,
+          "prompt_tokens": 4822,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": true,
+          "ttft": 0.4380601248703897,
+          "prompt_tokens": 4830,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5124278019648045,
+          "prompt_tokens": 4828,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.4895777669735253,
+          "prompt_tokens": 4829,
+          "completion_tokens": 14,
+          "request_idx": 8,
+          "question": "What was the number of TO&E authorization for aviators in the 57th Medical Detachment?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5480465341825038,
+          "prompt_tokens": 4819,
+          "completion_tokens": 16,
+          "request_idx": 9,
+          "question": "Was the maintenance support and availability of spare parts sufficient?"
+        },
+        {
+          "success": true,
+          "ttft": 0.5850634078960866,
+          "prompt_tokens": 4816,
+          "completion_tokens": 16,
+          "request_idx": 10,
+          "question": "What were the options for patient evacuation?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6947631340008229,
+          "prompt_tokens": 4821,
+          "completion_tokens": 16,
+          "request_idx": 11,
+          "question": "Who was classifying the Vietnamese patients on a medical evacuation request?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6208651401102543,
+          "prompt_tokens": 4823,
+          "completion_tokens": 16,
+          "request_idx": 12,
+          "question": "What operation did the 57th Medical Detachment support in Honduras?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6488374539185315,
+          "prompt_tokens": 4825,
+          "completion_tokens": 14,
+          "request_idx": 13,
+          "question": "What was the 57th Medical Detachment reorganized and redesignated as?"
+        },
+        {
+          "success": true,
+          "ttft": 0.7360973949544132,
+          "prompt_tokens": 4830,
+          "completion_tokens": 16,
+          "request_idx": 14,
+          "question": "What did the 57th Medical Company (Air Ambulance) do in 1998?"
+        },
+        {
+          "success": true,
+          "ttft": 0.7692179540172219,
+          "prompt_tokens": 4829,
+          "completion_tokens": 16,
+          "request_idx": 15,
+          "question": "What did the 57th Medical Company do on 18 May 1999?"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 16,
+        "success_rate": 1.0,
+        "ttft_mean": 0.525351276184665,
+        "ttft_p50": 0.5124278019648045,
+        "ttft_p90": 0.7360973949544132,
+        "ttft_p99": 0.7692179540172219,
+        "ttft_min": 0.25876483507454395,
+        "ttft_max": 0.7692179540172219,
+        "ttft_first": 0.25876483507454395,
+        "ttft_subsequent_mean": 0.5431237055920064,
+        "ttft_subsequent_p50": 0.5124278019648045
+      },
+      "warmup_ttft": 0.1735381199978292,
+      "warmup_success": true,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 3150,
+      "label": "p4096_f16_d0_cc4f70a5",
+      "prefix_len": 4096,
+      "fan_out": 16,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.22752715717069805,
+          "prompt_tokens": 4331,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": true,
+          "ttft": 0.2277886050287634,
+          "prompt_tokens": 4326,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": true,
+          "ttft": 0.2341686689760536,
+          "prompt_tokens": 4328,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": true,
+          "ttft": 0.23653176706284285,
+          "prompt_tokens": 4327,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": true,
+          "ttft": 0.19532141694799066,
+          "prompt_tokens": 4325,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": true,
+          "ttft": 0.1968015329912305,
+          "prompt_tokens": 4325,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": true,
+          "ttft": 0.19571237382479012,
+          "prompt_tokens": 4322,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": true,
+          "ttft": 0.20161311398260295,
+          "prompt_tokens": 4324,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        },
+        {
+          "success": true,
+          "ttft": 0.20384685811586678,
+          "prompt_tokens": 4329,
+          "completion_tokens": 16,
+          "request_idx": 8,
+          "question": "What are the guidelines recommended by DCPCR for same-sex adoptions?"
+        },
+        {
+          "success": true,
+          "ttft": 0.19958161609247327,
+          "prompt_tokens": 4334,
+          "completion_tokens": 16,
+          "request_idx": 9,
+          "question": "What was the stance of Islamic organizations on the extension of the right to marry to queer Indians"
+        },
+        {
+          "success": true,
+          "ttft": 0.19757061102427542,
+          "prompt_tokens": 4322,
+          "completion_tokens": 16,
+          "request_idx": 10,
+          "question": "What was Kajal's occupation?"
+        },
+        {
+          "success": true,
+          "ttft": 0.20200217212550342,
+          "prompt_tokens": 4330,
+          "completion_tokens": 16,
+          "request_idx": 11,
+          "question": "What did Senior Advocate Vrinda Grover draw the Bench's attention to?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22523493715561926,
+          "prompt_tokens": 4326,
+          "completion_tokens": 16,
+          "request_idx": 12,
+          "question": "What did the retired judges argue regarding law-making power?"
+        },
+        {
+          "success": true,
+          "ttft": 0.6395408620592207,
+          "prompt_tokens": 4332,
+          "completion_tokens": 16,
+          "request_idx": 13,
+          "question": "Who opposed same-sex marriage on 11th May 2023?"
+        },
+        {
+          "success": true,
+          "ttft": 0.639004471944645,
+          "prompt_tokens": 4333,
+          "completion_tokens": 16,
+          "request_idx": 14,
+          "question": "Why does the respondent oppose extending the right to marry and establish a family to queer Indians?"
+        },
+        {
+          "success": true,
+          "ttft": 0.29740021494217217,
+          "prompt_tokens": 4334,
+          "completion_tokens": 16,
+          "request_idx": 15,
+          "question": "Which state governments have intervened to oppose the right to marry and establish a family for quee"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 16,
+        "success_rate": 1.0,
+        "ttft_mean": 0.26997789871529676,
+        "ttft_p50": 0.22523493715561926,
+        "ttft_p90": 0.639004471944645,
+        "ttft_p99": 0.6395408620592207,
+        "ttft_min": 0.19532141694799066,
+        "ttft_max": 0.6395408620592207,
+        "ttft_first": 0.19532141694799066,
+        "ttft_subsequent_mean": 0.27495499749978386,
+        "ttft_subsequent_p50": 0.22523493715561926
+      },
+      "warmup_ttft": 0.16379502089694142,
+      "warmup_success": true,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 3150,
+      "label": "p4096_f16_d200_65ab618b",
+      "prefix_len": 4096,
+      "fan_out": 16,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": true,
+          "ttft": 0.1991908939089626,
+          "prompt_tokens": 4826,
+          "completion_tokens": 16,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": true,
+          "ttft": 0.20604743785224855,
+          "prompt_tokens": 4821,
+          "completion_tokens": 16,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": true,
+          "ttft": 0.2022607820108533,
+          "prompt_tokens": 4824,
+          "completion_tokens": 16,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": true,
+          "ttft": 0.1979707779828459,
+          "prompt_tokens": 4824,
+          "completion_tokens": 16,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": true,
+          "ttft": 0.1986478811595589,
+          "prompt_tokens": 4828,
+          "completion_tokens": 16,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.19796877796761692,
+          "prompt_tokens": 4822,
+          "completion_tokens": 16,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": true,
+          "ttft": 0.19947378593496978,
+          "prompt_tokens": 4830,
+          "completion_tokens": 16,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.19530705083161592,
+          "prompt_tokens": 4828,
+          "completion_tokens": 16,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        },
+        {
+          "success": true,
+          "ttft": 0.19602120597846806,
+          "prompt_tokens": 4829,
+          "completion_tokens": 14,
+          "request_idx": 8,
+          "question": "What was the number of TO&E authorization for aviators in the 57th Medical Detachment?"
+        },
+        {
+          "success": true,
+          "ttft": 0.19803704507648945,
+          "prompt_tokens": 4819,
+          "completion_tokens": 16,
+          "request_idx": 9,
+          "question": "Was the maintenance support and availability of spare parts sufficient?"
+        },
+        {
+          "success": true,
+          "ttft": 0.2040583030320704,
+          "prompt_tokens": 4816,
+          "completion_tokens": 16,
+          "request_idx": 10,
+          "question": "What were the options for patient evacuation?"
+        },
+        {
+          "success": true,
+          "ttft": 0.1981098740361631,
+          "prompt_tokens": 4821,
+          "completion_tokens": 16,
+          "request_idx": 11,
+          "question": "Who was classifying the Vietnamese patients on a medical evacuation request?"
+        },
+        {
+          "success": true,
+          "ttft": 0.20219617197290063,
+          "prompt_tokens": 4823,
+          "completion_tokens": 16,
+          "request_idx": 12,
+          "question": "What operation did the 57th Medical Detachment support in Honduras?"
+        },
+        {
+          "success": true,
+          "ttft": 0.18997564702294767,
+          "prompt_tokens": 4825,
+          "completion_tokens": 14,
+          "request_idx": 13,
+          "question": "What was the 57th Medical Detachment reorganized and redesignated as?"
+        },
+        {
+          "success": true,
+          "ttft": 0.22570999199524522,
+          "prompt_tokens": 4830,
+          "completion_tokens": 16,
+          "request_idx": 14,
+          "question": "What did the 57th Medical Company (Air Ambulance) do in 1998?"
+        },
+        {
+          "success": true,
+          "ttft": 0.19975570705719292,
+          "prompt_tokens": 4829,
+          "completion_tokens": 16,
+          "request_idx": 15,
+          "question": "What did the 57th Medical Company do on 18 May 1999?"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 16,
+        "success_rate": 1.0,
+        "ttft_mean": 0.20067070836375933,
+        "ttft_p50": 0.1991908939089626,
+        "ttft_p90": 0.20604743785224855,
+        "ttft_p99": 0.22570999199524522,
+        "ttft_min": 0.18997564702294767,
+        "ttft_max": 0.22570999199524522,
+        "ttft_first": 0.18997564702294767,
+        "ttft_subsequent_mean": 0.20138371245314676,
+        "ttft_subsequent_p50": 0.1991908939089626
+      },
+      "warmup_ttft": 0.24362002406269312,
+      "warmup_success": true,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 3150,
+      "label": "p4096_f16_d200_cc4f70a5",
+      "prefix_len": 4096,
+      "fan_out": 16,
+      "delay_ms": 200,
+      "concurrency": 16
+    }
+  ],
+  "config": {
+    "prefix_lens": "2048,4096",
+    "fan_outs": "8,16",
+    "delays": "0,200",
+    "concurrency": 16,
+    "num_docs": 2
+  }
+}

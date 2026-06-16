@@ -1,0 +1,290 @@
+{
+  "nvlink_local": {
+    "network": "Same-node NVLink",
+    "bandwidth_gbps": 450.0,
+    "latency_us": 0.001,
+    "mamba_transfer_ms": 0.0717702,
+    "by_prefix_len": {
+      "2048": {
+        "baseline_ttft_ms": 41.12497795555556,
+        "dualstate_ttft_ms": 16.477207755555558,
+        "mamba_transfer_saved_ms": 0.0717702,
+        "mamba_recompute_saved_ms": 24.576,
+        "total_saved_ms": 24.6477702,
+        "reduction_pct": 59.93381984699725,
+        "kv_transfer_ms": 0.09320775555555556,
+        "mamba_transfer_ms": 0.0717702
+      },
+      "4096": {
+        "baseline_ttft_ms": 82.17818471111111,
+        "dualstate_ttft_ms": 32.95441451111111,
+        "mamba_transfer_saved_ms": 0.0717702,
+        "mamba_recompute_saved_ms": 49.152,
+        "total_saved_ms": 49.223770200000004,
+        "reduction_pct": 59.89882883522076,
+        "kv_transfer_ms": 0.1864145111111111,
+        "mamba_transfer_ms": 0.0717702
+      },
+      "8192": {
+        "baseline_ttft_ms": 164.28459822222223,
+        "dualstate_ttft_ms": 65.90882802222222,
+        "mamba_transfer_saved_ms": 0.0717702,
+        "mamba_recompute_saved_ms": 98.304,
+        "total_saved_ms": 98.3757702,
+        "reduction_pct": 59.88131039948762,
+        "kv_transfer_ms": 0.3728280222222222,
+        "mamba_transfer_ms": 0.0717702
+      },
+      "16384": {
+        "baseline_ttft_ms": 328.49742524444446,
+        "dualstate_ttft_ms": 131.81765504444445,
+        "mamba_transfer_saved_ms": 0.0717702,
+        "mamba_recompute_saved_ms": 196.608,
+        "total_saved_ms": 196.6797702,
+        "reduction_pct": 59.872545440392685,
+        "kv_transfer_ms": 0.7456550444444444,
+        "mamba_transfer_ms": 0.0717702
+      }
+    }
+  },
+  "mooncake_tcp_local": {
+    "network": "Same-node TCP (current experiment)",
+    "bandwidth_gbps": 15.0,
+    "latency_us": 0.01,
+    "mamba_transfer_ms": 2.1530859999999996,
+    "by_prefix_len": {
+      "2048": {
+        "baseline_ttft_ms": 45.909298666666665,
+        "dualstate_ttft_ms": 19.180212666666666,
+        "mamba_transfer_saved_ms": 2.1530859999999996,
+        "mamba_recompute_saved_ms": 24.576,
+        "total_saved_ms": 26.729086,
+        "reduction_pct": 58.221508008806,
+        "kv_transfer_ms": 2.7962126666666665,
+        "mamba_transfer_ms": 2.1530859999999996
+      },
+      "4096": {
+        "baseline_ttft_ms": 89.66550133333334,
+        "dualstate_ttft_ms": 38.360415333333336,
+        "mamba_transfer_saved_ms": 2.1530859999999996,
+        "mamba_recompute_saved_ms": 49.152,
+        "total_saved_ms": 51.305086,
+        "reduction_pct": 57.21831165508382,
+        "kv_transfer_ms": 5.592415333333333,
+        "mamba_transfer_ms": 2.1530859999999996
+      },
+      "8192": {
+        "baseline_ttft_ms": 177.17790666666667,
+        "dualstate_ttft_ms": 76.72082066666667,
+        "mamba_transfer_saved_ms": 2.1530859999999996,
+        "mamba_recompute_saved_ms": 98.304,
+        "total_saved_ms": 100.457086,
+        "reduction_pct": 56.6984269596292,
+        "kv_transfer_ms": 11.184820666666667,
+        "mamba_transfer_ms": 2.1530859999999996
+      },
+      "16384": {
+        "baseline_ttft_ms": 352.20271733333334,
+        "dualstate_ttft_ms": 153.44163133333333,
+        "mamba_transfer_saved_ms": 2.1530859999999996,
+        "mamba_recompute_saved_ms": 196.608,
+        "total_saved_ms": 198.761086,
+        "reduction_pct": 56.43371735030869,
+        "kv_transfer_ms": 22.369631333333334,
+        "mamba_transfer_ms": 2.1530859999999996
+      }
+    }
+  },
+  "ib_hdr": {
+    "network": "200Gbps IB, cross-node",
+    "bandwidth_gbps": 25.0,
+    "latency_us": 0.002,
+    "mamba_transfer_ms": 1.2918476,
+    "by_prefix_len": {
+      "2048": {
+        "baseline_ttft_ms": 43.9295712,
+        "dualstate_ttft_ms": 18.061723599999997,
+        "mamba_transfer_saved_ms": 1.2918476,
+        "mamba_recompute_saved_ms": 24.576,
+        "total_saved_ms": 25.8678476,
+        "reduction_pct": 58.88481697722558,
+        "kv_transfer_ms": 1.6777236000000002,
+        "mamba_transfer_ms": 1.2918476
+      },
+      "4096": {
+        "baseline_ttft_ms": 86.5672928,
+        "dualstate_ttft_ms": 36.123445200000006,
+        "mamba_transfer_saved_ms": 1.2918476,
+        "mamba_recompute_saved_ms": 49.152,
+        "total_saved_ms": 50.4438476,
+        "reduction_pct": 58.271254614075204,
+        "kv_transfer_ms": 3.3554452,
+        "mamba_transfer_ms": 1.2918476
+      },
+      "8192": {
+        "baseline_ttft_ms": 171.842736,
+        "dualstate_ttft_ms": 72.2468884,
+        "mamba_transfer_saved_ms": 1.2918476,
+        "mamba_recompute_saved_ms": 98.304,
+        "total_saved_ms": 99.5958476,
+        "reduction_pct": 57.95755463297559,
+        "kv_transfer_ms": 6.7108884,
+        "mamba_transfer_ms": 1.2918476
+      },
+      "16384": {
+        "baseline_ttft_ms": 342.3936224,
+        "dualstate_ttft_ms": 144.4937748,
+        "mamba_transfer_saved_ms": 1.2918476,
+        "mamba_recompute_saved_ms": 196.608,
+        "total_saved_ms": 197.89984760000002,
+        "reduction_pct": 57.79892925949546,
+        "kv_transfer_ms": 13.421774800000001,
+        "mamba_transfer_ms": 1.2918476
+      }
+    }
+  },
+  "ib_ndr": {
+    "network": "400Gbps IB, cross-node",
+    "bandwidth_gbps": 50.0,
+    "latency_us": 0.001,
+    "mamba_transfer_ms": 0.6459238,
+    "by_prefix_len": {
+      "2048": {
+        "baseline_ttft_ms": 42.4447856,
+        "dualstate_ttft_ms": 17.222861800000004,
+        "mamba_transfer_saved_ms": 0.6459238,
+        "mamba_recompute_saved_ms": 24.576,
+        "total_saved_ms": 25.2219238,
+        "reduction_pct": 59.42290305737814,
+        "kv_transfer_ms": 0.8388618000000001,
+        "mamba_transfer_ms": 0.6459238
+      },
+      "4096": {
+        "baseline_ttft_ms": 84.2436464,
+        "dualstate_ttft_ms": 34.4457226,
+        "mamba_transfer_saved_ms": 0.6459238,
+        "mamba_recompute_saved_ms": 49.152,
+        "total_saved_ms": 49.7979238,
+        "reduction_pct": 59.11178578803777,
+        "kv_transfer_ms": 1.6777226,
+        "mamba_transfer_ms": 0.6459238
+      },
+      "8192": {
+        "baseline_ttft_ms": 167.84136800000002,
+        "dualstate_ttft_ms": 68.89144420000001,
+        "mamba_transfer_saved_ms": 0.6459238,
+        "mamba_recompute_saved_ms": 98.304,
+        "total_saved_ms": 98.94992380000001,
+        "reduction_pct": 58.95443118647603,
+        "kv_transfer_ms": 3.3554442,
+        "mamba_transfer_ms": 0.6459238
+      },
+      "16384": {
+        "baseline_ttft_ms": 335.0368112,
+        "dualstate_ttft_ms": 137.7828874,
+        "mamba_transfer_saved_ms": 0.6459238,
+        "mamba_recompute_saved_ms": 196.608,
+        "total_saved_ms": 197.2539238,
+        "reduction_pct": 58.87529883462549,
+        "kv_transfer_ms": 6.710887400000001,
+        "mamba_transfer_ms": 0.6459238
+      }
+    }
+  },
+  "roce_v2": {
+    "network": "100Gbps RDMA over Ethernet",
+    "bandwidth_gbps": 12.5,
+    "latency_us": 0.008,
+    "mamba_transfer_ms": 2.5836992000000003,
+    "by_prefix_len": {
+      "2048": {
+        "baseline_ttft_ms": 46.8991504,
+        "dualstate_ttft_ms": 19.7394512,
+        "mamba_transfer_saved_ms": 2.5836992000000003,
+        "mamba_recompute_saved_ms": 24.576,
+        "total_saved_ms": 27.159699200000002,
+        "reduction_pct": 57.910855459761166,
+        "kv_transfer_ms": 3.3554512,
+        "mamba_transfer_ms": 2.5836992000000003
+      },
+      "4096": {
+        "baseline_ttft_ms": 91.2145936,
+        "dualstate_ttft_ms": 39.4788944,
+        "mamba_transfer_saved_ms": 2.5836992000000003,
+        "mamba_recompute_saved_ms": 49.152,
+        "total_saved_ms": 51.7356992,
+        "reduction_pct": 56.71866436951378,
+        "kv_transfer_ms": 6.710894400000001,
+        "mamba_transfer_ms": 2.5836992000000003
+      },
+      "8192": {
+        "baseline_ttft_ms": 179.84548,
+        "dualstate_ttft_ms": 78.95778080000001,
+        "mamba_transfer_saved_ms": 2.5836992000000003,
+        "mamba_recompute_saved_ms": 98.304,
+        "total_saved_ms": 100.8876992,
+        "reduction_pct": 56.09687783090239,
+        "kv_transfer_ms": 13.4217808,
+        "mamba_transfer_ms": 2.5836992000000003
+      },
+      "16384": {
+        "baseline_ttft_ms": 357.1072528,
+        "dualstate_ttft_ms": 157.9155536,
+        "mamba_transfer_saved_ms": 2.5836992000000003,
+        "mamba_recompute_saved_ms": 196.608,
+        "total_saved_ms": 199.19169920000002,
+        "reduction_pct": 55.77923652857268,
+        "kv_transfer_ms": 26.8435536,
+        "mamba_transfer_ms": 2.5836992000000003
+      }
+    }
+  },
+  "tcp_cross_node": {
+    "network": "Standard TCP, WAN",
+    "bandwidth_gbps": 5.0,
+    "latency_us": 0.049999999999999996,
+    "mamba_transfer_ms": 6.459277999999999,
+    "by_prefix_len": {
+      "2048": {
+        "baseline_ttft_ms": 55.807936,
+        "dualstate_ttft_ms": 24.772658,
+        "mamba_transfer_saved_ms": 6.459277999999999,
+        "mamba_recompute_saved_ms": 24.576,
+        "total_saved_ms": 31.035277999999998,
+        "reduction_pct": 55.610868676454906,
+        "kv_transfer_ms": 8.388658,
+        "mamba_transfer_ms": 6.459277999999999
+      },
+      "4096": {
+        "baseline_ttft_ms": 105.156544,
+        "dualstate_ttft_ms": 49.545266,
+        "mamba_transfer_saved_ms": 6.459277999999999,
+        "mamba_recompute_saved_ms": 49.152,
+        "total_saved_ms": 55.611278,
+        "reduction_pct": 52.884276988030344,
+        "kv_transfer_ms": 16.777266,
+        "mamba_transfer_ms": 6.459277999999999
+      },
+      "8192": {
+        "baseline_ttft_ms": 203.85376,
+        "dualstate_ttft_ms": 99.090482,
+        "mamba_transfer_saved_ms": 6.459277999999999,
+        "mamba_recompute_saved_ms": 98.304,
+        "total_saved_ms": 104.763278,
+        "reduction_pct": 51.39138861112986,
+        "kv_transfer_ms": 33.554482,
+        "mamba_transfer_ms": 6.459277999999999
+      },
+      "16384": {
+        "baseline_ttft_ms": 401.248192,
+        "dualstate_ttft_ms": 198.180914,
+        "mamba_transfer_saved_ms": 6.459277999999999,
+        "mamba_recompute_saved_ms": 196.608,
+        "total_saved_ms": 203.06727800000002,
+        "reduction_pct": 50.60889545391397,
+        "kv_transfer_ms": 67.108914,
+        "mamba_transfer_ms": 6.459277999999999
+      }
+    }
+  }
+}

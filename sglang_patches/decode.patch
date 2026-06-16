@@ -1,0 +1,176 @@
+diff --git a/python/sglang/srt/disaggregation/decode.py b/python/sglang/srt/disaggregation/decode.py
+index 27eb699b2..16597edf9 100644
+--- a/python/sglang/srt/disaggregation/decode.py
++++ b/python/sglang/srt/disaggregation/decode.py
+@@ -229,9 +229,30 @@ class HybridMambaDecodeReqToTokenPool(HybridReqToTokenPool):
+             speculative_num_draft_tokens=speculative_num_draft_tokens,
+         )
+ 
++        self.cam = None
++        self._effective_mamba_size = effective_mamba_size
++
+     def clear(self):
+         self.free_slots = list(range(1, self._alloc_size))
+         self.mamba_pool.clear()
++        if self.cam is not None:
++            self.cam.clear()
++
++    def init_dualstate(self, cache_ratio: float):
++        from sglang.srt.mem_cache.checkpoint_availability_map import (
++            CheckpointAvailabilityMap,
++        )
++
++        max_cache_slots = int(self._effective_mamba_size * cache_ratio)
++        self.cam = CheckpointAvailabilityMap(
++            mamba_pool=self.mamba_pool,
++            max_cache_slots=max_cache_slots,
++            total_pool_size=self._effective_mamba_size,
++        )
++        logger.info(
++            f"DualState CAM initialized: max_cache_slots={max_cache_slots}, "
++            f"pool_size={self._effective_mamba_size}"
++        )
+ 
+ 
+ @dataclass
+@@ -921,7 +942,45 @@ class DecodePreallocQueue:
+ 
+             seq_len = len(decode_req.req.origin_input_ids)
+ 
++            # DualState: check CAM for cached mamba checkpoint, COW if available
++            dualstate_cow_done = False
++            if (
++                self.transfer_queue._dualstate_enabled
++                and self.transfer_queue._dualstate_cam is not None
++            ):
++                from sglang.srt.mem_cache.checkpoint_availability_map import (
++                    compute_prefix_hash,
++                )
++
++                _ds_prefix_hash = compute_prefix_hash(
++                    decode_req.req.origin_input_ids
++                )
++                _ds_entry = self.transfer_queue._dualstate_cam.lookup(
++                    _ds_prefix_hash
++                )
++                if _ds_entry is not None:
++                    _ds_work_slots = (
++                        self.transfer_queue._dualstate_cam.cow_from_cache(
++                            _ds_prefix_hash
++                        )
++                    )
++                    if _ds_work_slots is not None:
++                        # Write COW'd mamba slots into the request's mapping
++                        self.req_to_token_pool.req_index_to_mamba_index_mapping[
++                            decode_req.req.req_pool_idx
++                        ] = _ds_work_slots
++                        dualstate_cow_done = True
++                        decode_req.req.dualstate_mamba_from_cache = True
++                        logger.info(
++                            "DualState: COW mamba from cache for prefix %s "
++                            "(cached_slots=%s)",
++                            _ds_prefix_hash[:8],
++                            _ds_work_slots.tolist(),
++                        )
++
+             def _mamba_payload():
++                if dualstate_cow_done:
++                    return []  # Tell P-side: no mamba transfer needed
+                 return [
+                     self.req_to_token_pool.req_index_to_mamba_index_mapping[
+                         decode_req.req.req_pool_idx
+@@ -1357,6 +1416,16 @@ class DecodeTransferQueue:
+         self.enable_staging = envs.SGLANG_DISAGG_STAGING_BUFFER.get()
+         self.staging_handler = None
+ 
++        self._dualstate_enabled = getattr(scheduler.server_args, "enable_dualstate", False)
++        self._dualstate_scheduler = None
++        self._dualstate_cam = None
++
++    def init_dualstate(self, cam, dualstate_scheduler):
++        """Initialize DualState components after pool is ready."""
++        self._dualstate_cam = cam
++        self._dualstate_scheduler = dualstate_scheduler
++        logger.info("DualState: DecodeTransferQueue fork logic enabled")
++
+     def add(self, decode_req: DecodeRequest) -> None:
+         self.queue.append(decode_req)
+ 
+@@ -1465,8 +1534,77 @@ class DecodeTransferQueue:
+         decode_req.kv_receiver.clear()
+         decode_req.kv_receiver = None
+         decode_req.req.time_stats.set_wait_queue_entry_time()
++
++        if self._dualstate_enabled and self._dualstate_cam is not None:
++            self._dualstate_fork_if_needed(decode_req)
++
+         return
+ 
++    def _dualstate_fork_if_needed(self, decode_req: DecodeRequest):
++        """FSM transition: RECEIVED -> FORK (or RECEIVED -> ACTIVE)."""
++        from sglang.srt.disaggregation.dualstate_coherence import (
++            DualStateCoherenceManager,
++        )
++        from sglang.srt.mem_cache.checkpoint_availability_map import (
++            compute_prefix_hash,
++        )
++
++        req = decode_req.req
++        origin_ids = getattr(req, "origin_input_ids", None)
++        if origin_ids is None:
++            return
++
++        if getattr(req, "dualstate_mamba_from_cache", False):
++            return
++
++        prefix_hash = compute_prefix_hash(origin_ids)
++
++        if not self._dualstate_scheduler.should_cache(
++            prefix_hash=prefix_hash,
++            prefix_len=len(origin_ids),
++            cam=self._dualstate_cam,
++        ):
++            return
++
++        # In disaggregated decode, mamba index is in the pool mapping, not req.mamba_pool_idx
++        req_pool_idx = getattr(req, "req_pool_idx", None)
++        if req_pool_idx is None:
++            return
++
++        pool = self.scheduler.req_to_token_pool
++        if not hasattr(pool, "req_index_to_mamba_index_mapping"):
++            return
++
++        mamba_slot = pool.req_index_to_mamba_index_mapping[req_pool_idx]
++        if mamba_slot is None:
++            return
++
++        if isinstance(mamba_slot, torch.Tensor):
++            mamba_slot = mamba_slot.reshape(-1)
++        else:
++            mamba_slot = torch.tensor([int(mamba_slot)], dtype=torch.int64)
++
++        # Ensure on same device as mamba pool
++        pool_device = self._dualstate_cam._mamba_pool.device
++        mamba_slot = mamba_slot.to(pool_device)
++
++        # Ensure P→D transfer is fully written before we fork
++        torch.cuda.synchronize()
++
++        cached_slot = self._dualstate_cam.fork_and_cache(
++            prefix_hash=prefix_hash,
++            prefix_len=len(origin_ids),
++            src_mamba_indices=mamba_slot,
++        )
++
++        if cached_slot is not None:
++            logger.info(
++                f"DualState FSM: forked mamba state for prefix {prefix_hash[:8]}... "
++                f"(src_slot={mamba_slot.tolist()} -> cached_slot={cached_slot.tolist()})"
++            )
++            coherence_mgr = DualStateCoherenceManager.get_instance()
++            coherence_mgr.d_report_cache_status(prefix_hash, len(origin_ids), "C")
++
+     def _poll_with_metadata_gate(self) -> List[int]:
+         return poll_and_all_reduce(
+             [dr.kv_receiver for dr in self.queue],

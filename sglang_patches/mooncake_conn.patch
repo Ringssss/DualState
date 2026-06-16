@@ -1,0 +1,135 @@
+diff --git a/python/sglang/srt/disaggregation/mooncake/conn.py b/python/sglang/srt/disaggregation/mooncake/conn.py
+index e3951a777..ad87fa211 100644
+--- a/python/sglang/srt/disaggregation/mooncake/conn.py
++++ b/python/sglang/srt/disaggregation/mooncake/conn.py
+@@ -75,6 +75,8 @@ class TransferInfo:
+     required_dst_info_num: int
+     is_dummy: bool
+     decode_prefix_len: Optional[int] = None
++    dualstate_prefix_hash: Optional[str] = None
++    dualstate_mamba_skipped: bool = False
+     # Note: always put the optional staging field at the final (it will be set through 'STAGING_RSP' pkg when needed)
+     staging: Optional[StagingTransferInfo] = None
+ 
+@@ -122,6 +124,10 @@ class KVArgsRegisterInfo:
+     # for mamba state different tp slice transfer
+     dst_state_item_lens: List[List[int]]
+     dst_state_dim_per_tensor: List[List[int]]
++    # DualState coherence fields
++    dualstate_prefix_hash: Optional[str] = None
++    dualstate_prefix_len: int = 0
++    dualstate_checkpoint_state: str = "I"
+     # Note: always put the staging field at the final (since the staging field is optional and contains multiple inputs)
+     staging: Optional[StagingRegisterInfo] = None
+ 
+@@ -163,6 +169,7 @@ class MooncakeKVManager(CommonKVManager):
+         self.init_engine()
+         self.register_buffer_to_engine()
+         self.enable_staging = envs.SGLANG_DISAGG_STAGING_BUFFER.get()
++        self._dualstate_enabled = getattr(server_args, "enable_dualstate", False)
+         if self.disaggregation_mode == DisaggregationMode.PREFILL:
+             self.start_prefill_thread()
+             self.session_failures = defaultdict(int)
+@@ -555,6 +562,24 @@ class MooncakeKVManager(CommonKVManager):
+             return 0
+ 
+         src_addrs, dst_addrs, lengths = zip(*transfer_blocks)
++
++        # Lightweight timing for transfer profiling
++        import os
++        if os.environ.get("SGLANG_DISAGG_TRANSFER_TIMING", "0") == "1":
++            import time as _time
++            total_bytes = sum(lengths)
++            _t0 = _time.perf_counter()
++            ret = self.engine.batch_transfer_sync(
++                mooncake_session_id, list(src_addrs), list(dst_addrs), list(lengths)
++            )
++            _elapsed_ms = (_time.perf_counter() - _t0) * 1000
++            _bw_gbps = total_bytes / (_elapsed_ms / 1000) / 1e9 if _elapsed_ms > 0 else 0
++            logger.info(
++                "TRANSFER_TIMING: blocks=%d total=%.1fMB elapsed=%.2fms bw=%.1fGB/s",
++                len(transfer_blocks), total_bytes / 1e6, _elapsed_ms, _bw_gbps,
++            )
++            return ret
++
+         return self.engine.batch_transfer_sync(
+             mooncake_session_id, list(src_addrs), list(dst_addrs), list(lengths)
+         )
+@@ -946,6 +971,16 @@ class MooncakeKVManager(CommonKVManager):
+             )
+ 
+             if st == StateType.MAMBA:
++                # DualState: if D COW'd mamba from cache, it sends empty
++                # dst_state_indices → skip the mamba transfer entirely.
++                if not dst_indices:
++                    logger.info(
++                        "DualState: D has mamba from cache, skipping mamba "
++                        "transfer for room=%s",
++                        getattr(req, "room", "?"),
++                    )
++                    continue
++
+                 if (
+                     target_rank_registration_info is not None
+                     and self.attn_tp_size
+@@ -1015,6 +1050,12 @@ class MooncakeKVManager(CommonKVManager):
+                 )
+         return rc
+ 
++    def _should_skip_mamba_transfer_dualstate(
++        self, target_info: Optional[KVArgsRegisterInfo], req
++    ) -> bool:
++        """Legacy — skip logic now handled by empty dst_state_indices from D-side COW."""
++        return False
++
+     def _send_mamba_state(
+         self,
+         req: TransferInfo,
+@@ -1269,6 +1310,47 @@ class MooncakeKVManager(CommonKVManager):
+                             break
+ 
+                         if kv_chunk.is_last_chunk:
++                            # ── DualState TransferMode decision ──
++                            _ds_transfer_mode = None
++                            _ds_t0 = None
++                            if kv_chunk.state_indices and os.environ.get("SGLANG_DUALSTATE_COST_MODEL", "0") == "1":
++                                import time as _time
++                                _ds_t0 = _time.perf_counter()
++                                try:
++                                    from sglang.srt.disaggregation.dualstate_coherence import DualStateCoherenceManager
++                                    from sglang.srt.disaggregation.dualstate_scheduler import DualStateScheduler, TransferMode
++                                    from sglang.srt.mem_cache.checkpoint_availability_map import compute_prefix_hash
++
++                                    coherence = DualStateCoherenceManager.get_instance()
++                                    origin_ids = getattr(req, '_origin_input_ids', None)
++                                    seq_len = len(kv_chunk.prefill_kv_indices) if kv_chunk.prefill_kv_indices is not None else 0
++                                    decode_prefix_len = self.req_to_decode_prefix_len.get(kv_chunk.room, 0) or 0
++
++                                    if origin_ids is not None and len(origin_ids) > 0:
++                                        prefix_hash = compute_prefix_hash(origin_ids)
++                                        d_status = coherence.p_query_d_status(prefix_hash)
++                                        d_state = d_status.get("d_checkpoint_state", "I")
++                                        p_has_checkpoint = True  # P always has the state after prefill
++
++                                        new_tokens = max(0, seq_len - decode_prefix_len)
++                                        scheduler = DualStateScheduler.from_model_config({})
++                                        _ds_transfer_mode = scheduler.decide_action(
++                                            prefix_len=decode_prefix_len,
++                                            new_tokens=new_tokens,
++                                            p_has_checkpoint=p_has_checkpoint,
++                                            d_state=d_state,
++                                        )
++                                        _elapsed = (_time.perf_counter() - _ds_t0) * 1000
++                                        logger.info(
++                                            "DualState TransferMode: mode=%s d_state=%s "
++                                            "prefix=%d new=%d decode_prefix=%d cost_ms=%.2f room=%s",
++                                            _ds_transfer_mode.value, d_state,
++                                            seq_len, new_tokens, decode_prefix_len,
++                                            _elapsed, getattr(req, 'room', '?'),
++                                        )
++                                except Exception as e:
++                                    logger.debug("DualState cost model skip: %s", e)
++
+                             if kv_chunk.state_indices:
+                                 self.maybe_send_extra(
+                                     req,

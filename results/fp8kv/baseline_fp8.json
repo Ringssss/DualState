@@ -1,0 +1,1663 @@
+{
+  "tag": "baseline_fp8",
+  "model_name": "Qwen3.6-35B-A3B",
+  "mode": "sweep",
+  "timestamp": "2026-06-12 01:56:48",
+  "sweep_results": [
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002581313019618392,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0019074948504567146,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00262454804033041,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0037590230349451303,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0022177849896252155,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.001596295041963458,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0018619068432599306,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0007979378569871187,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0008121670689433813,
+      "warmup_success": false,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 1575,
+      "label": "p2048_f8_d0_65ab618b",
+      "prefix_len": 2048,
+      "fan_out": 8,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0017510270699858665,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0013700730632990599,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.003352187108248472,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0024190088734030724,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002814588835462928,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0020989130716770887,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.001757896039634943,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005684639327228069,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0006274268962442875,
+      "warmup_success": false,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 1575,
+      "label": "p2048_f8_d0_cc4f70a5",
+      "prefix_len": 2048,
+      "fan_out": 8,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0004498839844018221,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0004331220407038927,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00041719991713762283,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0004431589040905237,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.000464865006506443,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00047229998745024204,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006935589481145144,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00045311287976801395,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0006231679581105709,
+      "warmup_success": false,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 1575,
+      "label": "p2048_f8_d200_65ab618b",
+      "prefix_len": 2048,
+      "fan_out": 8,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0004214600194245577,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0004185170400887728,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00041386717930436134,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00039620790630578995,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.000406225910410285,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0004265138413757086,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005133089143782854,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0008972981013357639,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0005644198972731829,
+      "warmup_success": false,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 1575,
+      "label": "p2048_f8_d200_cc4f70a5",
+      "prefix_len": 2048,
+      "fan_out": 8,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0037047951482236385,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0018508469220250845,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0029131858609616756,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002581742824986577,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.003983244998380542,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.003422731999307871,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.005326793994754553,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.007597918855026364,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0026221538428217173,
+          "request_idx": 8,
+          "question": "What are the guidelines recommended by DCPCR for same-sex adoptions?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.004353058058768511,
+          "request_idx": 9,
+          "question": "What was the stance of Islamic organizations on the extension of the right to marry to queer Indians"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.005423980066552758,
+          "request_idx": 10,
+          "question": "What was Kajal's occupation?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002227952005341649,
+          "request_idx": 11,
+          "question": "What did Senior Advocate Vrinda Grover draw the Bench's attention to?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.003202443942427635,
+          "request_idx": 12,
+          "question": "What did the retired judges argue regarding law-making power?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002379578072577715,
+          "request_idx": 13,
+          "question": "Who opposed same-sex marriage on 11th May 2023?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002593816025182605,
+          "request_idx": 14,
+          "question": "Why does the respondent oppose extending the right to marry and establish a family to queer Indians?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0011512620840221643,
+          "request_idx": 15,
+          "question": "Which state governments have intervened to oppose the right to marry and establish a family for quee"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0009880641009658575,
+      "warmup_success": false,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 1575,
+      "label": "p2048_f16_d0_65ab618b",
+      "prefix_len": 2048,
+      "fan_out": 16,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.003499802900478244,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0015014149248600006,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.001578108873218298,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002446657046675682,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0062174610793590546,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.004668030887842178,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0018864709418267012,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0021964090410619974,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002865480026230216,
+          "request_idx": 8,
+          "question": "What was the number of TO&E authorization for aviators in the 57th Medical Detachment?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0026904128026217222,
+          "request_idx": 9,
+          "question": "Was the maintenance support and availability of spare parts sufficient?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0020283330231904984,
+          "request_idx": 10,
+          "question": "What were the options for patient evacuation?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.004337442805990577,
+          "request_idx": 11,
+          "question": "Who was classifying the Vietnamese patients on a medical evacuation request?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0017178140114992857,
+          "request_idx": 12,
+          "question": "What operation did the 57th Medical Detachment support in Honduras?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002126652980223298,
+          "request_idx": 13,
+          "question": "What was the 57th Medical Detachment reorganized and redesignated as?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0019135009497404099,
+          "request_idx": 14,
+          "question": "What did the 57th Medical Company (Air Ambulance) do in 1998?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0010950220748782158,
+          "request_idx": 15,
+          "question": "What did the 57th Medical Company do on 18 May 1999?"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0008058161474764347,
+      "warmup_success": false,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 1575,
+      "label": "p2048_f16_d0_cc4f70a5",
+      "prefix_len": 2048,
+      "fan_out": 16,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.000560013810172677,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006456130649894476,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005761010106652975,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006141101475805044,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006440631113946438,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005181969609111547,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00046311807818710804,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00044829584658145905,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.000565660186111927,
+          "request_idx": 8,
+          "question": "What are the guidelines recommended by DCPCR for same-sex adoptions?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0016157550271600485,
+          "request_idx": 9,
+          "question": "What was the stance of Islamic organizations on the extension of the right to marry to queer Indians"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005825171247124672,
+          "request_idx": 10,
+          "question": "What was Kajal's occupation?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005335321184247732,
+          "request_idx": 11,
+          "question": "What did Senior Advocate Vrinda Grover draw the Bench's attention to?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005376029293984175,
+          "request_idx": 12,
+          "question": "What did the retired judges argue regarding law-making power?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006210559513419867,
+          "request_idx": 13,
+          "question": "Who opposed same-sex marriage on 11th May 2023?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005655928980559111,
+          "request_idx": 14,
+          "question": "Why does the respondent oppose extending the right to marry and establish a family to queer Indians?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006617701146751642,
+          "request_idx": 15,
+          "question": "Which state governments have intervened to oppose the right to marry and establish a family for quee"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0008246519137173891,
+      "warmup_success": false,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 1575,
+      "label": "p2048_f16_d200_65ab618b",
+      "prefix_len": 2048,
+      "fan_out": 16,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00044815894216299057,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006629989948123693,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0008491410408169031,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0011741709895431995,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0008653439581394196,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0007133909966796637,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0007523568347096443,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0007524001412093639,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006313249468803406,
+          "request_idx": 8,
+          "question": "What was the number of TO&E authorization for aviators in the 57th Medical Detachment?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006064102053642273,
+          "request_idx": 9,
+          "question": "Was the maintenance support and availability of spare parts sufficient?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005448011215776205,
+          "request_idx": 10,
+          "question": "What were the options for patient evacuation?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00048144510947167873,
+          "request_idx": 11,
+          "question": "Who was classifying the Vietnamese patients on a medical evacuation request?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005099768750369549,
+          "request_idx": 12,
+          "question": "What operation did the 57th Medical Detachment support in Honduras?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006913149263709784,
+          "request_idx": 13,
+          "question": "What was the 57th Medical Detachment reorganized and redesignated as?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005119000561535358,
+          "request_idx": 14,
+          "question": "What did the 57th Medical Company (Air Ambulance) do in 1998?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0007788878865540028,
+          "request_idx": 15,
+          "question": "What did the 57th Medical Company do on 18 May 1999?"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0006085408385843039,
+      "warmup_success": false,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 1575,
+      "label": "p2048_f16_d200_cc4f70a5",
+      "prefix_len": 2048,
+      "fan_out": 16,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0023007511626929045,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0036491509526968002,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002214777981862426,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0021475290413945913,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0026561501435935497,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002512706909328699,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0018646828830242157,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.000768955796957016,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0005867460276931524,
+      "warmup_success": false,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 3150,
+      "label": "p4096_f8_d0_65ab618b",
+      "prefix_len": 4096,
+      "fan_out": 8,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0025120291393250227,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.001341331982985139,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.001576290000230074,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0007629059255123138,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0025301510468125343,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002218093955889344,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0013828990049660206,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.001272561028599739,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0006406009197235107,
+      "warmup_success": false,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 3150,
+      "label": "p4096_f8_d0_cc4f70a5",
+      "prefix_len": 4096,
+      "fan_out": 8,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00048341602087020874,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.000499179121106863,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0004781419411301613,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006564001087099314,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00048668007366359234,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005202509928494692,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00047188811004161835,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0004997649230062962,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.000649870140478015,
+      "warmup_success": false,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 3150,
+      "label": "p4096_f8_d200_65ab618b",
+      "prefix_len": 4096,
+      "fan_out": 8,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00080149807035923,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005623209290206432,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006908739451318979,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006263209506869316,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006318020168691874,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006473418325185776,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006172440480440855,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.000556429848074913,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        }
+      ],
+      "stats": {
+        "n_total": 8,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0006135250441730022,
+      "warmup_success": false,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 3150,
+      "label": "p4096_f8_d200_cc4f70a5",
+      "prefix_len": 4096,
+      "fan_out": 8,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0025358409620821476,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.001908923964947462,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.003913873108103871,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0012281660456210375,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0018697238992899656,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0012683600652962923,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.004177497932687402,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.004120684927329421,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.003241649130359292,
+          "request_idx": 8,
+          "question": "What are the guidelines recommended by DCPCR for same-sex adoptions?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00278492015786469,
+          "request_idx": 9,
+          "question": "What was the stance of Islamic organizations on the extension of the right to marry to queer Indians"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0029950670432299376,
+          "request_idx": 10,
+          "question": "What was Kajal's occupation?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0037268041633069515,
+          "request_idx": 11,
+          "question": "What did Senior Advocate Vrinda Grover draw the Bench's attention to?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002734238049015403,
+          "request_idx": 12,
+          "question": "What did the retired judges argue regarding law-making power?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0020969200413674116,
+          "request_idx": 13,
+          "question": "Who opposed same-sex marriage on 11th May 2023?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.001695424085482955,
+          "request_idx": 14,
+          "question": "Why does the respondent oppose extending the right to marry and establish a family to queer Indians?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.001114922109991312,
+          "request_idx": 15,
+          "question": "Which state governments have intervened to oppose the right to marry and establish a family for quee"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0005698169115930796,
+      "warmup_success": false,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 3150,
+      "label": "p4096_f16_d0_65ab618b",
+      "prefix_len": 4096,
+      "fan_out": 16,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.001228471053764224,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0022790469229221344,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.002191381063312292,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0018308211583644152,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006807730533182621,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0010567689314484596,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.005473661934956908,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0034766190219670534,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006399338599294424,
+          "request_idx": 8,
+          "question": "What was the number of TO&E authorization for aviators in the 57th Medical Detachment?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0032381389755755663,
+          "request_idx": 9,
+          "question": "Was the maintenance support and availability of spare parts sufficient?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.004180609947070479,
+          "request_idx": 10,
+          "question": "What were the options for patient evacuation?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0020827180705964565,
+          "request_idx": 11,
+          "question": "Who was classifying the Vietnamese patients on a medical evacuation request?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.003404577961191535,
+          "request_idx": 12,
+          "question": "What operation did the 57th Medical Detachment support in Honduras?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0019940731581300497,
+          "request_idx": 13,
+          "question": "What was the 57th Medical Detachment reorganized and redesignated as?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.001210592919960618,
+          "request_idx": 14,
+          "question": "What did the 57th Medical Company (Air Ambulance) do in 1998?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0009696269407868385,
+          "request_idx": 15,
+          "question": "What did the 57th Medical Company do on 18 May 1999?"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0006431040819734335,
+      "warmup_success": false,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 3150,
+      "label": "p4096_f16_d0_cc4f70a5",
+      "prefix_len": 4096,
+      "fan_out": 16,
+      "delay_ms": 0,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.00048292684368789196,
+          "request_idx": 0,
+          "question": "What did the Supreme Court hold in Deepika Singh v. Central Administrative Tribunal?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006496009882539511,
+          "request_idx": 1,
+          "question": "What rights did the Supreme Court recognise for queer individuals?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005437841173261404,
+          "request_idx": 2,
+          "question": "What is the argument of the petitioners regarding the Citizenship Act?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005468130111694336,
+          "request_idx": 3,
+          "question": "What is the impact of legally sanctioned exclusion on queer Indians?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005877320654690266,
+          "request_idx": 4,
+          "question": "What were the effects of harassment on the students?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005837490316480398,
+          "request_idx": 5,
+          "question": "What causes queer Indians to remain in the closet?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.000846280949190259,
+          "request_idx": 6,
+          "question": "Is the right to privacy absolute?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005864310078322887,
+          "request_idx": 7,
+          "question": "What did the Supreme Court affirm about marriage?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006078078877180815,
+          "request_idx": 8,
+          "question": "What are the guidelines recommended by DCPCR for same-sex adoptions?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006077149882912636,
+          "request_idx": 9,
+          "question": "What was the stance of Islamic organizations on the extension of the right to marry to queer Indians"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005851557943969965,
+          "request_idx": 10,
+          "question": "What was Kajal's occupation?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005054909270256758,
+          "request_idx": 11,
+          "question": "What did Senior Advocate Vrinda Grover draw the Bench's attention to?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0004901760257780552,
+          "request_idx": 12,
+          "question": "What did the retired judges argue regarding law-making power?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0006439960561692715,
+          "request_idx": 13,
+          "question": "Who opposed same-sex marriage on 11th May 2023?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005999449640512466,
+          "request_idx": 14,
+          "question": "Why does the respondent oppose extending the right to marry and establish a family to queer Indians?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005612610839307308,
+          "request_idx": 15,
+          "question": "Which state governments have intervened to oppose the right to marry and establish a family for quee"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0006492359098047018,
+      "warmup_success": false,
+      "doc_id": "65ab618b-5ec6-4a30-a59c-db6fc24cfd29",
+      "doc_title": "Supriyo v. Union of India",
+      "prefix_words": 3150,
+      "label": "p4096_f16_d200_65ab618b",
+      "prefix_len": 4096,
+      "fan_out": 16,
+      "delay_ms": 200,
+      "concurrency": 16
+    },
+    {
+      "results": [
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0007184329442679882,
+          "request_idx": 0,
+          "question": "What was the reason for the evacuation on 19 February 1958?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005221900064498186,
+          "request_idx": 1,
+          "question": "What happened on 23 March 1960?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0008650128729641438,
+          "request_idx": 2,
+          "question": "When did the 57th Medical Detachment become operational at Nha Trang?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0008641800377517939,
+          "request_idx": 3,
+          "question": "What was the main problem faced by the 57th Medical Detachment?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0008609979413449764,
+          "request_idx": 4,
+          "question": "What call sign did the 57th Medical Detachment use during its first year in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0008548840414732695,
+          "request_idx": 5,
+          "question": "What was the mission request that Kelly received on 11 April?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0005792358424514532,
+          "request_idx": 6,
+          "question": "What was the mission of the 57th Medical Detachment (Helicopter Ambulance) in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0007323301397264004,
+          "request_idx": 7,
+          "question": "What was the major workload of the 57th Medical Detachment during their time in Vietnam?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0007391760591417551,
+          "request_idx": 8,
+          "question": "What was the number of TO&E authorization for aviators in the 57th Medical Detachment?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0008821049705147743,
+          "request_idx": 9,
+          "question": "Was the maintenance support and availability of spare parts sufficient?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0008940389379858971,
+          "request_idx": 10,
+          "question": "What were the options for patient evacuation?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0008814670145511627,
+          "request_idx": 11,
+          "question": "Who was classifying the Vietnamese patients on a medical evacuation request?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.001243595965206623,
+          "request_idx": 12,
+          "question": "What operation did the 57th Medical Detachment support in Honduras?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.000772861996665597,
+          "request_idx": 13,
+          "question": "What was the 57th Medical Detachment reorganized and redesignated as?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0011659080628305674,
+          "request_idx": 14,
+          "question": "What did the 57th Medical Company (Air Ambulance) do in 1998?"
+        },
+        {
+          "success": false,
+          "error": "HTTPConnectionPool(host='127.0.0.1', port=30000): Max retries exceeded with url: /generate (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=30000): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+          "ttft": 0.0010336239356547594,
+          "request_idx": 15,
+          "question": "What did the 57th Medical Company do on 18 May 1999?"
+        }
+      ],
+      "stats": {
+        "n_total": 16,
+        "n_success": 0,
+        "success_rate": 0
+      },
+      "warmup_ttft": 0.0005725959781557322,
+      "warmup_success": false,
+      "doc_id": "cc4f70a5-28a1-46b9-9a55-2899335979db",
+      "doc_title": "57th Medical Detachment",
+      "prefix_words": 3150,
+      "label": "p4096_f16_d200_cc4f70a5",
+      "prefix_len": 4096,
+      "fan_out": 16,
+      "delay_ms": 200,
+      "concurrency": 16
+    }
+  ],
+  "config": {
+    "prefix_lens": "2048,4096",
+    "fan_outs": "8,16",
+    "delays": "0,200",
+    "concurrency": 16,
+    "num_docs": 2
+  }
+}

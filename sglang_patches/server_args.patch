@@ -1,0 +1,93 @@
+diff --git a/python/sglang/srt/server_args.py b/python/sglang/srt/server_args.py
+index 86fbba470..1329e819b 100644
+--- a/python/sglang/srt/server_args.py
++++ b/python/sglang/srt/server_args.py
+@@ -651,6 +651,8 @@ class ServerArgs:
+     mamba_full_memory_ratio: float = 0.9
+     mamba_scheduler_strategy: str = "auto"
+     mamba_track_interval: int = 256
++    enable_dualstate: bool = False
++    dualstate_cache_ratio: float = 0.3
+     linear_attn_backend: str = "triton"
+     linear_attn_decode_backend: Optional[str] = None
+     linear_attn_prefill_backend: Optional[str] = None
+@@ -709,6 +711,7 @@ class ServerArgs:
+     enable_profile_cuda_graph: bool = False
+     enable_cudagraph_gc: bool = False
+     debug_cuda_graph: bool = False
++    foundry_graph_extension_config_path: Optional[str] = None
+     enable_layerwise_nvtx_marker: bool = False
+     enable_nccl_nvls: bool = False
+     enable_symm_mem: bool = False
+@@ -857,6 +860,11 @@ class ServerArgs:
+ 
+         self._maybe_download_model_for_runai()
+ 
++        # Foundry CUDA Graph Extension
++        if self.foundry_graph_extension_config_path:
++            from sglang.srt.foundry_shim import apply_server_args
++            apply_server_args(self)
++
+         # Normalize load balancing defaults early (before dummy-model short-circuit).
+         self._handle_load_balance_method()
+ 
+@@ -2346,10 +2354,23 @@ class ServerArgs:
+                 f"Using {self.attention_backend} as attention backend for {model_arch}."
+             )
+         elif model_arch in ["KimiLinearForCausalLM"]:
+-            self._handle_mamba_radix_cache(
+-                model_arch=model_arch,
+-                support_mamba_cache=False,
+-            )
++            if envs.SGLANG_EXPERIMENTAL_KIMI_LINEAR_MAMBA_RADIX_CACHE.get():
++                logger.warning(
++                    "Experimentally enabling Mamba/Radix cache for %s. "
++                    "This is intended for GraphPool hybrid-prefix experiments and "
++                    "does not change the default unsupported status.",
++                    model_arch,
++                )
++                self._handle_mamba_radix_cache(
++                    model_arch=model_arch,
++                    support_mamba_cache=True,
++                    support_mamba_cache_extra_buffer=True,
++                )
++            else:
++                self._handle_mamba_radix_cache(
++                    model_arch=model_arch,
++                    support_mamba_cache=False,
++                )
+         elif model_arch in ["BailingMoeV2_5ForCausalLM"]:
+             self._handle_mamba_radix_cache(
+                 model_arch=model_arch,
+@@ -5908,6 +5929,18 @@ class ServerArgs:
+             default=ServerArgs.mamba_track_interval,
+             help="The interval to track the mamba state during decode.",
+         )
++        parser.add_argument(
++            "--enable-dualstate",
++            action="store_true",
++            default=False,
++            help="Enable DualState checkpoint-aware serving for hybrid model PD disaggregation.",
++        )
++        parser.add_argument(
++            "--dualstate-cache-ratio",
++            type=float,
++            default=ServerArgs.dualstate_cache_ratio,
++            help="Fraction of D-side mamba pool slots reserved for checkpoint caching (default: 0.3).",
++        )
+         parser.add_argument(
+             "--mamba-backend",
+             type=str,
+@@ -6186,6 +6219,12 @@ class ServerArgs:
+             "while still going through the CUDA graph capture / replay path. "
+             "Useful for debugging CUDA graph capture / replay issues.",
+         )
++        parser.add_argument(
++            "--foundry-graph-extension-config-path",
++            type=str,
++            default=None,
++            help="Path to Foundry CUDA graph extension TOML config for SAVE/LOAD mode.",
++        )
+         parser.add_argument(
+             "--enable-layerwise-nvtx-marker",
+             action="store_true",

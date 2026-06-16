@@ -1,0 +1,98 @@
+{
+  "P_H100_D_H20": {
+    "p_gpu": "NVIDIA H100 80GB HBM3",
+    "d_gpu": "NVIDIA H20 96GB HBM3",
+    "d_compute_ratio": 0.1494949494949495,
+    "network": "InfiniBand HDR (25 GB/s)",
+    "by_prefix_len": {
+      "2048": {
+        "p_compute_ms": 40.96,
+        "d_mamba_recompute_ms": 164.39351351351354,
+        "dualstate_skip_saved_ms": 164.39351351351354,
+        "mamba_transfer_saved_ms": 1.2918476,
+        "total_saved_ms": 165.68536111351355,
+        "baseline_ttft_ms": 43.9295712,
+        "dualstate_ttft_ms": -121.75578991351355,
+        "reduction_pct": 377.16134391385447
+      },
+      "4096": {
+        "p_compute_ms": 81.92,
+        "d_mamba_recompute_ms": 328.7870270270271,
+        "dualstate_skip_saved_ms": 328.7870270270271,
+        "mamba_transfer_saved_ms": 1.2918476,
+        "total_saved_ms": 330.07887462702706,
+        "baseline_ttft_ms": 86.5672928,
+        "dualstate_ttft_ms": -243.51158182702704,
+        "reduction_pct": 381.2974438159016
+      },
+      "8192": {
+        "p_compute_ms": 163.84,
+        "d_mamba_recompute_ms": 657.5740540540542,
+        "dualstate_skip_saved_ms": 657.5740540540542,
+        "mamba_transfer_saved_ms": 1.2918476,
+        "total_saved_ms": 658.8659016540541,
+        "baseline_ttft_ms": 171.842736,
+        "dualstate_ttft_ms": -487.02316565405414,
+        "reduction_pct": 383.41213425166495
+      },
+      "16384": {
+        "p_compute_ms": 327.68,
+        "d_mamba_recompute_ms": 1315.1481081081083,
+        "dualstate_skip_saved_ms": 1315.1481081081083,
+        "mamba_transfer_saved_ms": 1.2918476,
+        "total_saved_ms": 1316.4399557081083,
+        "baseline_ttft_ms": 342.39362239999997,
+        "dualstate_ttft_ms": -974.0463333081084,
+        "reduction_pct": 384.4814475458257
+      }
+    }
+  },
+  "P_H100_D_A100": {
+    "p_gpu": "NVIDIA H100 80GB HBM3",
+    "d_gpu": "NVIDIA A100 80GB HBM2e",
+    "d_compute_ratio": 0.3151515151515151,
+    "network": "InfiniBand HDR (25 GB/s)",
+    "by_prefix_len": {
+      "2048": {
+        "p_compute_ms": 40.96,
+        "d_mamba_recompute_ms": 77.98153846153846,
+        "dualstate_skip_saved_ms": 77.98153846153846,
+        "mamba_transfer_saved_ms": 1.2918476,
+        "total_saved_ms": 79.27338606153846,
+        "baseline_ttft_ms": 43.9295712,
+        "dualstate_ttft_ms": -35.34381486153846,
+        "reduction_pct": 180.4556336337252
+      },
+      "4096": {
+        "p_compute_ms": 81.92,
+        "d_mamba_recompute_ms": 155.96307692307693,
+        "dualstate_skip_saved_ms": 155.96307692307693,
+        "mamba_transfer_saved_ms": 1.2918476,
+        "total_saved_ms": 157.25492452307694,
+        "baseline_ttft_ms": 86.5672928,
+        "dualstate_ttft_ms": -70.68763172307693,
+        "reduction_pct": 181.65628083852582
+      },
+      "8192": {
+        "p_compute_ms": 163.84,
+        "d_mamba_recompute_ms": 311.92615384615385,
+        "dualstate_skip_saved_ms": 311.92615384615385,
+        "mamba_transfer_saved_ms": 1.2918476,
+        "total_saved_ms": 313.21800144615383,
+        "baseline_ttft_ms": 171.842736,
+        "dualstate_ttft_ms": -141.37526544615383,
+        "reduction_pct": 182.27014346777733
+      },
+      "16384": {
+        "p_compute_ms": 327.68,
+        "d_mamba_recompute_ms": 623.8523076923077,
+        "dualstate_skip_saved_ms": 623.8523076923077,
+        "mamba_transfer_saved_ms": 1.2918476,
+        "total_saved_ms": 625.1441552923077,
+        "baseline_ttft_ms": 342.39362239999997,
+        "dualstate_ttft_ms": -282.7505328923077,
+        "reduction_pct": 182.58054893381907
+      }
+    }
+  }
+}

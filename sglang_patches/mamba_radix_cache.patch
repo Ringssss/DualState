@@ -1,0 +1,271 @@
+diff --git a/python/sglang/srt/mem_cache/mamba_radix_cache.py b/python/sglang/srt/mem_cache/mamba_radix_cache.py
+index 5a5c7a7f3..beeed09df 100644
+--- a/python/sglang/srt/mem_cache/mamba_radix_cache.py
++++ b/python/sglang/srt/mem_cache/mamba_radix_cache.py
+@@ -50,10 +50,21 @@ from sglang.srt.mem_cache.radix_cache import RadixKey
+ from sglang.srt.mem_cache.utils import split_node_hash_value
+ from sglang.srt.server_args import get_global_server_args
+ 
++from sglang.srt.mem_cache.mamba_radix_trace import (
++    init_tracer,
++    is_trace_enabled,
++    trace_evict_kv,
++    trace_evict_mamba,
++    trace_insert,
++    trace_match,
++    trace_split,
++)
++
+ if TYPE_CHECKING:
+     from sglang.srt.managers.schedule_batch import Req
+     from sglang.srt.mem_cache.cache_init_params import CacheInitParams
+ 
++import hashlib
+ import logging
+ 
+ logger = logging.getLogger(__name__)
+@@ -446,6 +457,17 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+         if params.enable_metrics:
+             self.init_metrics_collector()
+ 
++        self._trace_enabled = is_trace_enabled()
++        if self._trace_enabled:
++            tp_rank = get_tensor_model_parallel_rank()
++            server_args = get_global_server_args()
++            init_tracer(
++                tp_rank=tp_rank,
++                dp_rank=getattr(server_args, "dp_rank", 0) if server_args else 0,
++                server_role="colocated",
++                model_name=getattr(server_args, "model_path", "") if server_args else "",
++            )
++
+         self.reset()
+ 
+     ##### Public API #####
+@@ -493,8 +515,8 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+                 best_match_node=self.root_node,
+             )
+ 
+-        value, last_node, best_value_len = self._match_prefix_helper(key)
+-        return self._match_post_processor(params, value, last_node, best_value_len)
++        value, last_node, best_value_len, trace_info = self._match_prefix_helper(key)
++        return self._match_post_processor(params, value, last_node, best_value_len, trace_info)
+ 
+     def insert(self, params: InsertParams) -> InsertResult:
+         if self.disable:
+@@ -739,6 +761,13 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+         self.req_to_token_pool.mamba_pool.free(x.mamba_value)
+         mamba_num_evicted = len(x.mamba_value)
+ 
++        if self._trace_enabled:
++            trace_evict_kv(
++                kv_tokens_evicted=full_num_evicted,
++                node_id=x.id,
++                node_had_mamba_value=True,
++            )
++
+         # 2. get the next node, update the lru lists
+         if is_evict_mamba:
+             x_next = self.mamba_lru_list.get_prev_no_lock(x)
+@@ -792,6 +821,14 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+                 self.req_to_token_pool.mamba_pool.free(x.mamba_value)
+                 mamba_num_evicted += len(x.mamba_value)
+ 
++                if self._trace_enabled:
++                    trace_evict_mamba(
++                        mamba_slots_evicted=len(x.mamba_value),
++                        was_internal_tombstone=True,
++                        node_id=x.id,
++                        node_had_children=True,
++                    )
++
+                 # 2. get the next node, update the lru lists
+                 x_next = self.mamba_lru_list.get_prev_no_lock(x)
+                 self.mamba_lru_list.remove_node(x)
+@@ -799,6 +836,13 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+                 # 3. tombstone the node
+                 self._tombstone_internal_node(x)
+             else:
++                if self._trace_enabled:
++                    trace_evict_mamba(
++                        mamba_slots_evicted=len(x.mamba_value),
++                        was_internal_tombstone=False,
++                        node_id=x.id,
++                        node_had_children=False,
++                    )
+                 _, mamba_evicted_delta, _, x_next = self._evict_leaf_node(x, True)
+                 mamba_num_evicted += mamba_evicted_delta
+ 
+@@ -963,7 +1007,7 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+ 
+     def _match_prefix_helper(
+         self, key: RadixKey
+-    ) -> Tuple[List[torch.Tensor], TreeNode, int]:
++    ) -> Tuple[List[torch.Tensor], TreeNode, int, dict]:
+         """
+         Mamba prefix matching helper. It factors in the sliding window size such that
+         the matched node is guaranteed to either 1. connected to root without mamba tombstone,
+@@ -976,8 +1020,26 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+         value: List[torch.Tensor] = []
+         best_value_len = 0
+         best_last_node = node
++
++        trace_info = {
++            "num_traversed_nodes": 0,
++            "num_traversed_nodes_with_mamba": 0,
++            "num_tombstone_nodes_on_path": 0,
++            "split_happened": False,
++            "split_prefix_len": None,
++            "split_node_has_mamba_value": None,
++        }
++        if node.mamba_value is not None:
++            trace_info["num_traversed_nodes_with_mamba"] += 1
++
+         while len(key) > 0 and child_key in node.children.keys():
+             child = node.children[child_key]
++            trace_info["num_traversed_nodes"] += 1
++            if child.mamba_value is not None:
++                trace_info["num_traversed_nodes_with_mamba"] += 1
++            else:
++                trace_info["num_tombstone_nodes_on_path"] += 1
++
+             # update best_value_len and best_last_node if needed
+             if node.mamba_value is not None:
+                 best_value_len = len(value)
+@@ -988,6 +1050,9 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+                 new_node = self._split_node(child.key, child, prefix_len)
+                 value.append(new_node.value)
+                 node = new_node
++                trace_info["split_happened"] = True
++                trace_info["split_prefix_len"] = prefix_len
++                trace_info["split_node_has_mamba_value"] = new_node.mamba_value is not None
+                 break
+             else:
+                 value.append(child.value)
+@@ -1001,7 +1066,9 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+             best_value_len = len(value)
+             best_last_node = node
+ 
+-        return value, best_last_node, best_value_len
++        trace_info["structural_match_len"] = sum(len(v) for v in value)
++
++        return value, best_last_node, best_value_len, trace_info
+ 
+     def _match_pre_processor(self, params: MatchPrefixParams) -> Optional[RadixKey]:
+         """Preprocess the key before matching."""
+@@ -1018,6 +1085,7 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+         value: List[torch.Tensor],
+         last_node: TreeNode,
+         best_value_len: int,
++        trace_info: dict,
+     ) -> MatchResult:
+         """Post-process the matched result."""
+         cow_mamba = params.cow_mamba
+@@ -1070,6 +1138,39 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+         else:
+             value = torch.empty((0,), dtype=torch.int64, device=self.device)
+ 
++        if self._trace_enabled:
++            effective_match_len = len(value)
++            state_checkpoint_match_len = effective_match_len
++            input_len = len(params.key) if params.key else 0
++            key_token_ids = params.key.token_ids if params.key else None
++            key_hash = hashlib.md5(
++                bytes(key_token_ids[:min(64, len(key_token_ids))]) if key_token_ids else b""
++            ).hexdigest()[:12] if key_token_ids else None
++            trace_match(
++                input_len=input_len,
++                structural_match_len=trace_info["structural_match_len"],
++                state_checkpoint_match_len=state_checkpoint_match_len,
++                effective_match_len=effective_match_len,
++                num_traversed_nodes=trace_info["num_traversed_nodes"],
++                num_traversed_nodes_with_mamba=trace_info["num_traversed_nodes_with_mamba"],
++                num_tombstone_nodes_on_path=trace_info["num_tombstone_nodes_on_path"],
++                last_node_id=last_node.id,
++                best_mamba_node_id=last_node.id,
++                split_happened=trace_info["split_happened"],
++                split_prefix_len=trace_info["split_prefix_len"],
++                split_node_has_mamba_value=trace_info["split_node_has_mamba_value"],
++                cow_mamba_triggered=cow_mamba and last_node.mamba_value is not None,
++                mamba_branching_seqlen=mamba_branching_seqlen,
++                page_size=self.page_size,
++                enable_mamba_extra_buffer=self.enable_mamba_extra_buffer,
++                mamba_cache_chunk_size=self.mamba_cache_chunk_size,
++                full_evictable_size=self.full_evictable_size_,
++                mamba_evictable_size=self.mamba_evictable_size_,
++                full_protected_size=self.full_protected_size_,
++                mamba_protected_size=self.mamba_protected_size_,
++                key_hash=key_hash,
++            )
++
+         return MatchResult(
+             device_indices=value,
+             last_device_node=last_node,
+@@ -1080,6 +1181,7 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+ 
+     def _split_node(self, key: RadixKey, child: TreeNode, split_len: int) -> TreeNode:
+         # new_node -> child
++        child_had_mamba = child.mamba_value is not None
+         new_node = TreeNode()
+         new_node.children = {key[split_len:].child_key(self.page_size): child}
+         new_node.parent = child.parent
+@@ -1109,6 +1211,16 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+         self.full_lru_list.insert_mru(child)
+         if child.mamba_value is not None:
+             self.mamba_lru_list.insert_mru(child)
++
++        if self._trace_enabled:
++            trace_split(
++                split_prefix_len=split_len,
++                new_node_id=new_node.id,
++                child_node_id=child.id,
++                child_had_mamba_value=child_had_mamba,
++                new_node_has_mamba_value=False,
++            )
++
+         return new_node
+ 
+     def _insert_helper(
+@@ -1158,6 +1270,9 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+                 child_key = key.child_key(self.page_size)
+ 
+         mamba_value_exist = False
++        mamba_checkpoint_inserted = False
++        mamba_checkpoint_restored_tombstone = False
++        insert_node = node
+         if len(key):
+             new_node = TreeNode()
+             new_node.parent = node
+@@ -1170,17 +1285,32 @@ class MambaRadixCache(KVCacheEventMixin, BasePrefixCache):
+             self.full_evictable_size_ += len(value)
+             self.mamba_evictable_size_ += len(mamba_value)
+             self._record_store_event(new_node)
++            mamba_checkpoint_inserted = True
++            insert_node = new_node
+         elif node.mamba_value is None:  # add for mamba tombstone
+             node.mamba_value = mamba_value
+             self.full_lru_list.reset_node_mru(node)
+             self.mamba_lru_list.insert_mru(node)
+             self.mamba_evictable_size_ += len(mamba_value)
+             node.last_access_time = get_last_access_time()
++            mamba_checkpoint_restored_tombstone = True
++            insert_node = node
+         else:  # mamba value already exists
+             mamba_value_exist = True
+             self.full_lru_list.reset_node_mru(node)
+             self.mamba_lru_list.reset_node_mru(node)
+             node.last_access_time = get_last_access_time()
++            insert_node = node
++
++        if self._trace_enabled:
++            trace_insert(
++                total_prefix_length=total_prefix_length,
++                new_key_len=len(key) if isinstance(key, RadixKey) else 0,
++                mamba_checkpoint_inserted=mamba_checkpoint_inserted,
++                mamba_checkpoint_restored_tombstone=mamba_checkpoint_restored_tombstone,
++                mamba_value_already_existed=mamba_value_exist,
++                node_id=insert_node.id,
++            )
+ 
+         return total_prefix_length, mamba_value_exist
+ 

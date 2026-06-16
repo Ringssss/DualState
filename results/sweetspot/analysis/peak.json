@@ -1,0 +1,8 @@
+{
+  "prefix_len": 2048,
+  "fan_out": 16,
+  "mean_reduction_pct": -17.685278598276003,
+  "min_reduction_pct": -29.001117734047945,
+  "max_reduction_pct": -4.897151731992836,
+  "n_samples": 6
+}

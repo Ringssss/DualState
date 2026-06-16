@@ -1,0 +1,132 @@
+diff --git a/python/sglang/srt/managers/scheduler.py b/python/sglang/srt/managers/scheduler.py
+index 868a28d43..5dda320cd 100644
+--- a/python/sglang/srt/managers/scheduler.py
++++ b/python/sglang/srt/managers/scheduler.py
+@@ -1040,6 +1040,9 @@ class Scheduler(
+                 tree_cache=self.tree_cache,
+             )
+ 
++            if self.server_args.enable_dualstate:
++                self._init_dualstate()
++
+             # The decode requests pending for pre-allocation
+             self.disagg_decode_prealloc_queue = DecodePreallocQueue(
+                 req_to_token_pool=self.req_to_token_pool,
+@@ -1118,6 +1121,28 @@ class Scheduler(
+                 scheduler=self,
+             )
+ 
++    def _init_dualstate(self):
++        """Initialize DualState checkpoint-aware serving components."""
++        from sglang.srt.disaggregation.dualstate_scheduler import DualStateScheduler
++
++        pool = self.req_to_token_pool
++        if hasattr(pool, "init_dualstate"):
++            pool.init_dualstate(self.server_args.dualstate_cache_ratio)
++            cam = pool.cam
++        else:
++            logger.warning(
++                "DualState: req_to_token_pool does not support init_dualstate, skipping"
++            )
++            return
++
++        dualstate_scheduler = DualStateScheduler.from_model_config(
++            self.model_config.hf_config.to_dict()
++            if hasattr(self.model_config.hf_config, "to_dict")
++            else {}
++        )
++        self.disagg_decode_transfer_queue.init_dualstate(cam, dualstate_scheduler)
++        logger.info("DualState: fully initialized on decode side")
++
+     def init_overlap(self):
+         self.device_module = torch.get_device_module(self.device)
+ 
+@@ -1380,6 +1405,8 @@ class Scheduler(
+             if batch:
+                 result = self.run_batch(batch)
+                 self.process_batch_result(batch, result)
++                # ── GraphPool Arbiter tick ──
++                self._graphpool_tick(batch)
+             else:
+                 # When the server is idle, do self-check and re-init some states.
+                 self.on_idle()
+@@ -3154,6 +3181,68 @@ class Scheduler(
+             if_success = False
+         return ClearHiCacheReqOutput(success=if_success)
+ 
++    # ── GraphPool Arbiter integration ──
++
++    def _graphpool_init(self):
++        """Initialize GraphPool Arbiter if configured."""
++        import os
++        archive_dir = os.environ.get("GRAPHPOOL_ARCHIVE")
++        if not archive_dir or not os.path.isdir(archive_dir):
++            self._gp_arbiter = None
++            return
++        try:
++            import sys
++            gp_dir = "/home/zhujianian/graphpool"
++            if gp_dir not in sys.path:
++                sys.path.insert(0, gp_dir)
++            from arbiter import GraphPoolArbiter
++            from executor import GraphPoolExecutor
++            self._gp_arbiter = GraphPoolArbiter(archive_dir)
++            self._gp_executor = GraphPoolExecutor(archive_dir)
++            logger.info(
++                f"[GraphPool] Arbiter initialized: archive={archive_dir}, "
++                f"available_bs={len(self._gp_arbiter.get_available_archive_bs())}"
++            )
++        except Exception as e:
++            logger.warning(f"[GraphPool] Arbiter init failed: {e}")
++            self._gp_arbiter = None
++
++    def _graphpool_tick(self, batch):
++        """Feed scheduler signals to GraphPool Arbiter after each batch."""
++        if not hasattr(self, '_gp_arbiter'):
++            self._graphpool_init()
++        if self._gp_arbiter is None:
++            return
++
++        try:
++            import time as _time
++            from arbiter import DemandSignal
++
++            decode_bs = batch.batch_size() if batch and not batch.forward_mode.is_extend() else 0
++            kv_avail = self.req_to_token_pool.available_size() / max(1, self.req_to_token_pool.size)
++
++            signal = DemandSignal(
++                timestamp=_time.monotonic(),
++                decode_bs=decode_bs,
++                waiting_queue_len=len(self.waiting_queue),
++                running_count=len(self.running_batch.reqs) if self.running_batch else 0,
++                kv_available_ratio=kv_avail,
++                graph_hit=getattr(batch, '_graphpool_hit', True),
++                padded_bs=decode_bs,
++            )
++
++            actions = self._gp_arbiter.on_iteration(signal)
++
++            if actions and hasattr(self, 'tp_worker') and self.tp_worker:
++                model_runner = self.tp_worker.model_runner
++                if hasattr(model_runner, 'graph_runner') and model_runner.graph_runner:
++                    for action in actions:
++                        self._gp_executor.execute_action(action, model_runner.graph_runner)
++
++        except Exception as e:
++            if self._gp_arbiter.state.total_iters < 5:
++                logger.warning(f"[GraphPool] Arbiter tick error: {e}")
++
+     def on_idle(self):
+         """Idle housekeeping: guard, check, metrics, reset, sleep."""
+         if not self.is_fully_idle():
+@@ -3841,6 +3930,10 @@ def run_scheduler_process(
+ ):
+     # Load plugins so hooks can override Scheduler and its dependencies.
+     load_plugins()
++    # Foundry CUDA Graph Extension: re-install hooks in spawned child
++    if getattr(server_args, 'foundry_graph_extension_config_path', None):
++        from sglang.srt.foundry_shim import apply_server_args
++        apply_server_args(server_args)
+     dp_rank = configure_scheduler_process(
+         server_args,
+         gpu_id,
