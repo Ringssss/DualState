@@ -1,0 +1,96 @@
+{
+  "trace": "kimi",
+  "n_requests": 100000,
+  "context_distribution": {
+    "min": 1,
+    "p50": 10107,
+    "p90": 42923,
+    "max": 125446
+  },
+  "transitions": {
+    "n_requests": 100000,
+    "n_families": 115,
+    "n_reusable": 99885,
+    "reuse_ratio": 0.99885,
+    "total_baseline_recurrent_ms": 6100000,
+    "total_dualstate_recurrent_ms": 10011.55,
+    "avoidable_recurrent_ms": 6089988.45,
+    "avoidable_recompute_ms": 3995400,
+    "avoidable_transfer_mb": 3076458.0,
+    "family_size_distribution": {
+      "min": 1,
+      "max": 22225,
+      "avg": 869.5652173913044,
+      "p50": 196
+    }
+  },
+  "amplification": [
+    {
+      "prefix_len": 512,
+      "kv_size_mb": 10.48576,
+      "mamba_size_mb": 30.8,
+      "mamba_fraction": 0.7460199352028398,
+      "prefill_waste_ms": 10.24,
+      "kv_transfer_waste_ms": 0.41943040000000004,
+      "total_waste_ms": 11.859430399999999,
+      "amplification_factor": 9.641813333333333
+    },
+    {
+      "prefix_len": 1024,
+      "kv_size_mb": 20.97152,
+      "mamba_size_mb": 30.8,
+      "mamba_fraction": 0.594921686672518,
+      "prefill_waste_ms": 20.48,
+      "kv_transfer_waste_ms": 0.8388608000000001,
+      "total_waste_ms": 22.5188608,
+      "amplification_factor": 18.308016910569105
+    },
+    {
+      "prefix_len": 2048,
+      "kv_size_mb": 41.94304,
+      "mamba_size_mb": 30.8,
+      "mamba_fraction": 0.423408205101134,
+      "prefill_waste_ms": 40.96,
+      "kv_transfer_waste_ms": 1.6777216000000001,
+      "total_waste_ms": 43.8377216,
+      "amplification_factor": 35.640424065040655
+    },
+    {
+      "prefix_len": 4096,
+      "kv_size_mb": 83.88608,
+      "mamba_size_mb": 30.8,
+      "mamba_fraction": 0.26855918346847324,
+      "prefill_waste_ms": 81.92,
+      "kv_transfer_waste_ms": 3.3554432000000003,
+      "total_waste_ms": 86.4754432,
+      "amplification_factor": 70.30523837398374
+    },
+    {
+      "prefix_len": 8192,
+      "kv_size_mb": 167.77216,
+      "mamba_size_mb": 30.8,
+      "mamba_fraction": 0.15510734233842244,
+      "prefill_waste_ms": 163.84,
+      "kv_transfer_waste_ms": 6.710886400000001,
+      "total_waste_ms": 171.75088639999998,
+      "amplification_factor": 139.6348669918699
+    },
+    {
+      "prefix_len": 16384,
+      "kv_size_mb": 335.54432,
+      "mamba_size_mb": 30.8,
+      "mamba_fraction": 0.08407391166867278,
+      "prefill_waste_ms": 327.68,
+      "kv_transfer_waste_ms": 13.421772800000001,
+      "total_waste_ms": 342.3017728,
+      "amplification_factor": 278.29412422764227
+    }
+  ],
+  "opportunity": {
+    "exact_reusable": 99885,
+    "exact_coverage": 0.99885,
+    "boundary_additional": 0,
+    "boundary_coverage": 0.99885,
+    "total_opportunity": 99885
+  }
+}

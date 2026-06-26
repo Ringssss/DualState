@@ -1,0 +1,121 @@
+{
+  "trace": "kimi_detailed_agentic",
+  "n_requests": 64186,
+  "n_families": 10,
+  "n_reusable": 64176,
+  "reuse_ratio": 0.9998442027856542,
+  "largest_family_size": 59539,
+  "largest_family_tools": [
+    "get_data_source",
+    "get_data_source_desc",
+    "ipython",
+    "memory_space_edits",
+    "search_image_by_image",
+    "search_image_by_text",
+    "web_open_url",
+    "web_search"
+  ],
+  "requests_with_tools": 62796,
+  "tool_coverage": 0.9783441872059327,
+  "avoidable_recompute_s": 2567.04,
+  "avoidable_transfer_gb": 1930.29375,
+  "total_avoidable_s": 3914.736,
+  "families": [
+    {
+      "tools": [
+        "get_data_source",
+        "get_data_source_desc",
+        "ipython",
+        "memory_space_edits",
+        "search_image_by_image",
+        "search_image_by_text",
+        "web_open_url",
+        "web_search"
+      ],
+      "n_tools": 8,
+      "count": 59539,
+      "avg_ctx": 18961
+    },
+    {
+      "tools": [
+        "(no tools)"
+      ],
+      "n_tools": 0,
+      "count": 1390,
+      "avg_ctx": 9397
+    },
+    {
+      "tools": [
+        "urls_fetch_tool"
+      ],
+      "n_tools": 1,
+      "count": 811,
+      "avg_ctx": 10822
+    },
+    {
+      "tools": [
+        "get_data_source",
+        "get_data_source_desc",
+        "ipython",
+        "search_image_by_image",
+        "search_image_by_text",
+        "web_open_url",
+        "web_search"
+      ],
+      "n_tools": 7,
+      "count": 772,
+      "avg_ctx": 17378
+    },
+    {
+      "tools": [
+        "web_open_url",
+        "web_search"
+      ],
+      "n_tools": 2,
+      "count": 451,
+      "avg_ctx": 4104
+    },
+    {
+      "tools": [
+        "web_open_url"
+      ],
+      "n_tools": 1,
+      "count": 335,
+      "avg_ctx": 3224
+    },
+    {
+      "tools": [
+        "ipython",
+        "memory_space_edits"
+      ],
+      "n_tools": 2,
+      "count": 332,
+      "avg_ctx": 12891
+    },
+    {
+      "tools": [
+        "web_search"
+      ],
+      "n_tools": 1,
+      "count": 328,
+      "avg_ctx": 3561
+    },
+    {
+      "tools": [
+        "search",
+        "urls_fetch_tool"
+      ],
+      "n_tools": 2,
+      "count": 218,
+      "avg_ctx": 3476
+    },
+    {
+      "tools": [
+        "ipython"
+      ],
+      "n_tools": 1,
+      "count": 10,
+      "avg_ctx": 5545
+    }
+  ]
+}

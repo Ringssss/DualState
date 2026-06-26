@@ -1,0 +1,33 @@
+{
+  "trace": "qwen_bailian_toB",
+  "n_requests": 172800,
+  "prefix_32tok": {
+    "n_families": 16148,
+    "n_reusable": 156652,
+    "coverage": 0.9065509259259259,
+    "top_family": 24534
+  },
+  "prefix_64tok": {
+    "n_families": 34726,
+    "n_reusable": 138074,
+    "coverage": 0.7990393518518518,
+    "top_family": 24534
+  },
+  "prefix_128tok": {
+    "n_families": 54724,
+    "n_reusable": 118076,
+    "coverage": 0.6833101851851852,
+    "top_family": 24534
+  },
+  "prefix_256tok": {
+    "n_families": 77337,
+    "n_reusable": 95463,
+    "coverage": 0.5524479166666667,
+    "top_family": 24534
+  },
+  "exact": {
+    "n_reusable": 6275,
+    "coverage": 0.036313657407407406
+  },
+  "gap_boundary_vs_exact": 131799
+}
