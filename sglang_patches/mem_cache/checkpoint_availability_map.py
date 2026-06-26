@@ -58,6 +58,7 @@ class CheckpointAvailabilityMap:
         self._mamba_pool = mamba_pool
         self._max_cache_slots = max_cache_slots
         self._total_pool_size = total_pool_size
+        self._cached_prefix_lens: set = set()  # Track all cached prefix lengths for boundary lookup
 
     def lookup(self, prefix_hash: str) -> Optional[CheckpointEntry]:
         entry = self._registry.get(prefix_hash)
@@ -108,6 +109,7 @@ class CheckpointAvailabilityMap:
             creation_time=now,
         )
         self._registry[prefix_hash] = entry
+        self._cached_prefix_lens.add(prefix_len)
         return new_slots
 
     def cow_from_cache(self, prefix_hash: str) -> Optional[torch.Tensor]:
@@ -178,6 +180,9 @@ class CheckpointAvailabilityMap:
         victim_hash, victim_entry = candidates[0]
 
         self._mamba_pool.free(victim_entry.mamba_slot_indices)
+        # Remove prefix_len from tracked set if no other entry has same length
+        if not any(e.prefix_len == victim_entry.prefix_len for e in self._registry.values() if e is not victim_entry):
+            self._cached_prefix_lens.discard(victim_entry.prefix_len)
         del self._registry[victim_hash]
         return victim_hash
 
@@ -225,13 +230,9 @@ class CheckpointAvailabilityMap:
         and a new request has tokens[:300], we can COW from the 200-token
         checkpoint (the mamba state is valid for the first 200 tokens).
 
-        However, the COW'd state is only valid if P-side also does delta
-        prefill from position 200 onward. This requires coordination with
-        the TransferMode decision.
-
-        For now, only returns exact matches (full-length hash). Partial
-        prefix matching will be enabled in Phase 4 when delta-mamba
-        transfer is supported.
+        The COW'd state is valid for the first `entry.prefix_len` tokens.
+        The caller (decode.py) must inform P-side to only compute mamba
+        for tokens[entry.prefix_len:] (delta mamba computation).
 
         Args:
             token_ids: Full token sequence of the new request
@@ -239,21 +240,36 @@ class CheckpointAvailabilityMap:
         Returns:
             Best matching CheckpointEntry, or None
         """
-        # Exact match first (fastest, most common case)
         from sglang.srt.mem_cache.checkpoint_availability_map import (
-            compute_prefix_hash,
+            compute_prefix_hash_at_length,
         )
 
-        exact_hash = compute_prefix_hash(token_ids)
+        if hasattr(token_ids, "tolist"):
+            token_ids = token_ids.tolist()
+
+        total_len = len(token_ids)
+
+        # Exact match first (fastest, most common case)
+        exact_hash = compute_prefix_hash_at_length(token_ids, total_len)
         exact = self.lookup(exact_hash)
         if exact is not None:
             return exact
 
-        # Future: probe shorter prefixes for partial match
-        # This is disabled until delta-mamba transfer is supported,
-        # because COW'ing a shorter prefix's mamba state would give
-        # incorrect results without P sending the remaining mamba delta.
-        return None
+        # Probe shorter prefixes at CACHED lengths (longest first)
+        # Only check lengths that actually exist in CAM
+        candidate_lens = sorted(
+            (pl for pl in self._cached_prefix_lens if pl < total_len),
+            reverse=True,
+        )
+        best_entry = None
+        for probe_len in candidate_lens:
+            probe_hash = compute_prefix_hash_at_length(token_ids, probe_len)
+            entry = self.lookup(probe_hash)
+            if entry is not None:
+                best_entry = entry
+                break  # longest match wins
+
+        return best_entry
 
     def get_all_entries(self) -> Dict[str, CheckpointEntry]:
         return dict(self._registry)

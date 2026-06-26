@@ -1,5 +1,5 @@
 diff --git a/python/sglang/srt/disaggregation/decode.py b/python/sglang/srt/disaggregation/decode.py
-index 27eb699b2..16597edf9 100644
+index 27eb699b2..7e68999fd 100644
 --- a/python/sglang/srt/disaggregation/decode.py
 +++ b/python/sglang/srt/disaggregation/decode.py
 @@ -229,9 +229,30 @@ class HybridMambaDecodeReqToTokenPool(HybridReqToTokenPool):
@@ -33,11 +33,12 @@ index 27eb699b2..16597edf9 100644
  
  
  @dataclass
-@@ -921,7 +942,45 @@ class DecodePreallocQueue:
+@@ -921,7 +942,53 @@ class DecodePreallocQueue:
  
              seq_len = len(decode_req.req.origin_input_ids)
  
 +            # DualState: check CAM for cached mamba checkpoint, COW if available
++            # Supports both exact match and boundary (hierarchical prefix) match
 +            dualstate_cow_done = False
 +            if (
 +                self.transfer_queue._dualstate_enabled
@@ -47,16 +48,16 @@ index 27eb699b2..16597edf9 100644
 +                    compute_prefix_hash,
 +                )
 +
-+                _ds_prefix_hash = compute_prefix_hash(
-+                    decode_req.req.origin_input_ids
-+                )
-+                _ds_entry = self.transfer_queue._dualstate_cam.lookup(
-+                    _ds_prefix_hash
++                _ds_origin_ids = decode_req.req.origin_input_ids
++
++                # Try hierarchical lookup: exact first, then boundary positions
++                _ds_entry = self.transfer_queue._dualstate_cam.lookup_longest_prefix(
++                    _ds_origin_ids, granularity=64
 +                )
 +                if _ds_entry is not None:
 +                    _ds_work_slots = (
 +                        self.transfer_queue._dualstate_cam.cow_from_cache(
-+                            _ds_prefix_hash
++                            _ds_entry.prefix_hash
 +                        )
 +                    )
 +                    if _ds_work_slots is not None:
@@ -66,10 +67,17 @@ index 27eb699b2..16597edf9 100644
 +                        ] = _ds_work_slots
 +                        dualstate_cow_done = True
 +                        decode_req.req.dualstate_mamba_from_cache = True
++                        # Record checkpoint coverage for P-side delta computation
++                        decode_req.req.dualstate_checkpoint_prefix_len = _ds_entry.prefix_len
++                        _match_type = "exact" if _ds_entry.prefix_len == len(_ds_origin_ids) else "boundary"
 +                        logger.info(
-+                            "DualState: COW mamba from cache for prefix %s "
++                            "DualState: COW mamba from cache (%s match) "
++                            "prefix_hash=%s checkpoint_len=%d req_len=%d "
 +                            "(cached_slots=%s)",
-+                            _ds_prefix_hash[:8],
++                            _match_type,
++                            _ds_entry.prefix_hash[:8],
++                            _ds_entry.prefix_len,
++                            len(_ds_origin_ids),
 +                            _ds_work_slots.tolist(),
 +                        )
 +
@@ -79,7 +87,7 @@ index 27eb699b2..16597edf9 100644
                  return [
                      self.req_to_token_pool.req_index_to_mamba_index_mapping[
                          decode_req.req.req_pool_idx
-@@ -1357,6 +1416,16 @@ class DecodeTransferQueue:
+@@ -1357,6 +1424,16 @@ class DecodeTransferQueue:
          self.enable_staging = envs.SGLANG_DISAGG_STAGING_BUFFER.get()
          self.staging_handler = None
  
@@ -96,7 +104,7 @@ index 27eb699b2..16597edf9 100644
      def add(self, decode_req: DecodeRequest) -> None:
          self.queue.append(decode_req)
  
-@@ -1465,8 +1534,77 @@ class DecodeTransferQueue:
+@@ -1465,8 +1542,80 @@ class DecodeTransferQueue:
          decode_req.kv_receiver.clear()
          decode_req.kv_receiver = None
          decode_req.req.time_stats.set_wait_queue_entry_time()
@@ -113,6 +121,7 @@ index 27eb699b2..16597edf9 100644
 +        )
 +        from sglang.srt.mem_cache.checkpoint_availability_map import (
 +            compute_prefix_hash,
++            compute_prefix_hash_at_length,
 +        )
 +
 +        req = decode_req.req
@@ -123,7 +132,9 @@ index 27eb699b2..16597edf9 100644
 +        if getattr(req, "dualstate_mamba_from_cache", False):
 +            return
 +
-+        prefix_hash = compute_prefix_hash(origin_ids)
++        # Use the at_length hash format for both exact and boundary matching
++        total_len = len(origin_ids)
++        prefix_hash = compute_prefix_hash_at_length(origin_ids, total_len)
 +
 +        if not self._dualstate_scheduler.should_cache(
 +            prefix_hash=prefix_hash,
